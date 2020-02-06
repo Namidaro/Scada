@@ -1,0 +1,134 @@
+﻿<views:InteractionViewBase x:Class="ULA.Presentation.Views.Interactions.LogInteractionView"
+                           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                           xmlns:markups="clr-namespace:ULA.Presentation.SharedResourses.Markups;assembly=ULA.Presentation.SharedResourses"
+                           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                           xmlns:views="clr-namespace:ULA.Presentation.Infrastructure.Views;assembly=ULA.Presentation.Infrastructure"
+                           xmlns:converters="clr-namespace:ULA.Presentation.SharedResourses.Converters;assembly=ULA.Presentation.SharedResourses"
+                           Title="{markups:LocalizationResourcesExtension JournalOfSystemsHeader}"
+                           MaxWidth="700"
+                           MaxHeight="700"
+                           d:DesignHeight="300"
+                           d:DesignWidth="300"
+                           mc:Ignorable="d">
+
+
+    <views:InteractionViewBase.Resources>
+        <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"></BooleanToVisibilityConverter>
+        <converters:BoolReverseConverter x:Key="BoolReverseConverter"></converters:BoolReverseConverter>
+        <converters:ObjectAsBoolToIsEnabledRevertConverter x:Key="ObjectAsBoolToIsEnabledRevertConverter"/>
+    </views:InteractionViewBase.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <TextBlock Visibility="{Binding IsLoadingInProcess,Converter={StaticResource booleanToVisibilityConverter}}" Grid.Row="0" Margin="10" Text="Идет загрузка журнала..."></TextBlock>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock Margin="2"
+        		HorizontalAlignment="Left"
+        		Text="{markups:LocalizationResources LogDescription}" />
+            <TextBox Width="200"
+        		Margin="2"
+        		Text="{Binding DescriptionFilter, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Margin="50,2,6,2"
+        		HorizontalAlignment="Left"
+        		Text="{markups:LocalizationResources LogDate}" />
+            <TextBlock Margin="0,2,2,2" Text="{markups:LocalizationResources From}" />
+            <DatePicker Width="100"
+        		Margin="2"
+        		DisplayDate="1/1/2014"
+        		DisplayDateEnd="1.01.2114"
+        		DisplayDateStart="1.1.2014"
+        		SelectedDate="{Binding DateFromFilter, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Margin="2" Text="{markups:LocalizationResources To}" />
+            <DatePicker Width="100"
+        		Margin="2"
+        		DisplayDateEnd="1/01/19"
+        		DisplayDateStart="1/1/14"
+        		SelectedDate="{Binding DateToFilter, UpdateSourceTrigger=PropertyChanged}"
+        		SelectedDateFormat="Short" />
+        </StackPanel>
+        <DataGrid Grid.Row="2" HorizontalAlignment="Stretch"
+                  VerticalAlignment="Top"
+                  HorizontalContentAlignment="Left"
+                  AutoGenerateColumns="False"
+                  CanUserResizeColumns="False"
+                  IsReadOnly="True"
+                  ItemsSource="{Binding LogCollection}"
+                  MinColumnWidth="300"
+                  RowHeaderWidth="0"
+                  MaxHeight="500"
+                  ScrollViewer.CanContentScroll="True"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  VerticalScrollBarVisibility="Auto"
+                  SelectionMode="Single"
+                  SelectionUnit="FullRow">
+            <DataGrid.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Gray" />
+            </DataGrid.Resources>
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="WhiteSmoke" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.CellStyle>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="BorderThickness" Value="1" />
+                    <Setter Property="BorderBrush" Value="Gray" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#000000FF" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ActionDescription}" Header="{markups:LocalizationResources LogDescription}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="TextWrapping" Value="Wrap" />
+                            <Setter Property="MaxWidth" Value="350" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding ActionDate, StringFormat=\{0:dd/MM/yyyy      HH:mm:ss\}}" Header="{markups:LocalizationResources LogDate}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Margin="5" Grid.Row="3" Orientation="Horizontal">
+            <Button Margin="4, 24, 4, 0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Command="{Binding RefreshCommand}"
+                    Content="Перечитать"
+                    IsEnabled="{Binding IsLoadingInProcess,Converter={StaticResource ObjectAsBoolToIsEnabledRevertConverter}}"
+                    Style="{DynamicResource DialogButtonStyle}" />
+
+
+            <Button Margin="4, 24, 4, 0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Command="{Binding CancelCommand}"
+                    Content="{markups:LocalizationResources Close}"
+                    Style="{DynamicResource DialogButtonStyle}" />
+        </StackPanel>
+
+    </Grid>
+</views:InteractionViewBase>

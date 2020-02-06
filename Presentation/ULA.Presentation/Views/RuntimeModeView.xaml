@@ -1,0 +1,76 @@
+﻿<views:MainContentView
+    x:Class="ULA.Presentation.Views.RuntimeModeView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:ULA.Presentation.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:infrastructure="clr-namespace:ULA.Presentation.Infrastructure;assembly=ULA.Presentation.Infrastructure"
+    xmlns:markups="clr-namespace:ULA.Presentation.SharedResourses.Markups;assembly=ULA.Presentation.SharedResourses"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:regions="http://www.codeplex.com/CompositeWPF"
+    xmlns:views="clr-namespace:ULA.Presentation.Infrastructure.Views;assembly=ULA.Presentation.Infrastructure"
+    xmlns:regions1="http://prismlibrary.com/"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:behaviors="clr-namespace:ULA.Presentation.Behaviors"
+    xmlns:interactions="clr-namespace:ULA.Presentation.Behaviors.Interactions"
+    Title="{markups:LocalizationResourcesExtension RuntimeMode}"
+    d:DesignHeight="300"
+    d:DesignWidth="300"
+    mc:Ignorable="d">
+    <views:MainContentView.Resources>
+        <converters:ImageVisibilityConverter x:Key="ImageVisibilityConverter" />
+    </views:MainContentView.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="10" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Menu
+            Grid.Row="0"
+            Grid.Column="0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Style="{DynamicResource MainMenuStyle}">
+            <MenuItem Header="{markups:LocalizationResourcesExtension CitywideCommandHeader}" Style="{DynamicResource MainMenuRootItemStyle}">
+                <MenuItem Command="{Binding NavigateToCitywideCommandsCommand}" Header="Команды на все устройства" />
+                <MenuItem Command="{Binding NavigateToCommandsOnSelectedDevicesCommand}" Header="Команды на выбранные устройства" />
+
+                <MenuItem Command="{Binding NavigateToSynchronizationTimeCommand}" Header="{markups:LocalizationResourcesExtension TimeSynchronizationHeader}" />
+                <MenuItem Command="{Binding NavigateToSynchronizationTimeOnSelectedDevicesCommand}" Header="Синхронизация времени на выбранные устройства" />
+
+                <MenuItem Command="{Binding NavigateToCommandOnTemplatesCommand}" Header="Команды по шаблонам" Visibility="Collapsed"/>
+
+            </MenuItem>
+            <MenuItem Header="{markups:LocalizationResourcesExtension HistoryHeader}" Style="{DynamicResource MainMenuRootItemStyle}">
+                <MenuItem Command="{Binding NavigateToJournalOfSystemCommand}" Header="{markups:LocalizationResourcesExtension JournalOfSystemsHeader}" />
+            </MenuItem>
+            <MenuItem Header="{markups:LocalizationResourcesExtension HelpHeader}" Style="{DynamicResource MainMenuRootItemStyle}">
+                <MenuItem Command="{Binding NavigateToAboutCommand}" Header="{markups:LocalizationResourcesExtension AboutHeader}" />
+                <MenuItem Command="{Binding NavigateToHelpCommand}" Header="{markups:LocalizationResourcesExtension HelpHeader}" />
+            </MenuItem>
+        </Menu>
+
+        <Canvas
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            ZIndex="{Binding BackgroundPicture.ZIndexValue}">
+            <ContentControl
+                Name="DesignerItem"
+                Canvas.Left="{Binding BackgroundPicture.CanvasLeft, Mode=TwoWay}"
+                Canvas.Top="{Binding BackgroundPicture.CanvasTop, Mode=TwoWay}"
+                Width="{Binding BackgroundPicture.ImageWidth, Mode=TwoWay}"
+                Height="{Binding BackgroundPicture.ImageHeight, Mode=TwoWay}"
+                Visibility="{Binding BackgroundPicture, Converter={StaticResource ImageVisibilityConverter}}">
+                <Image IsHitTestVisible="False" Source="{Binding BackgroundPicture.BackgroundImageSource}" />
+            </ContentControl>
+        </Canvas>
+        <Grid Grid.Row="2" ZIndex="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="59*"/>
+                <ColumnDefinition Width="241*"/>
+            </Grid.ColumnDefinitions>
+            <ContentControl regions1:RegionManager.RegionName="{x:Static infrastructure:ApplicationGlobalNames.RUNTIME_REGION_NAME}" Grid.ColumnSpan="2" />
+        </Grid>
+    </Grid>
+</views:MainContentView>

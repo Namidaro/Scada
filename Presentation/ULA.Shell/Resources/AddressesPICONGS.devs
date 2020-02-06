@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AddressesContainer>
+
+
+ <!--Неисправности-->
+<FailsContainer>
+
+<Address Modul="1" Diskret="0">6,0</Address>
+ <Address Modul="1" Diskret="1">6,1</Address>
+ <Address Modul="1" Diskret="2">6,2</Address>
+ <Address Modul="1" Diskret="3">6,3</Address>
+ <Address Modul="1" Diskret="4">6,4</Address>
+ <Address Modul="1" Diskret="5">6,5</Address>
+ <Address Modul="1" Diskret="6">6,6</Address>
+ <Address Modul="1" Diskret="7">6,7</Address>
+ <Address Modul="1" Diskret="8">6,8</Address>
+ <Address Modul="1" Diskret="9">6,9</Address>
+ <Address Modul="1" Diskret="10">6,10</Address> 
+ 
+ <Address Modul="2" Diskret="0">8,0</Address>
+ <Address Modul="2" Diskret="1">8,1</Address>
+ <Address Modul="2" Diskret="2">8,2</Address>
+ <Address Modul="2" Diskret="3">8,3</Address>
+ <Address Modul="2" Diskret="4">8,4</Address>
+ <Address Modul="2" Diskret="5">8,5</Address>
+ <Address Modul="2" Diskret="6">8,6</Address>
+ <Address Modul="2" Diskret="7">8,7</Address>
+ <Address Modul="2" Diskret="8">8,8</Address>
+ <Address Modul="2" Diskret="9">8,9</Address>
+ <Address Modul="2" Diskret="10">8,10</Address> 
+ 
+ <Address Modul="3" Diskret="0">10,0</Address>
+ <Address Modul="3" Diskret="1">10,1</Address>
+ <Address Modul="3" Diskret="2">10,2</Address>
+ <Address Modul="3" Diskret="3">10,3</Address>
+ <Address Modul="3" Diskret="4">10,4</Address>
+ <Address Modul="3" Diskret="5">10,5</Address>
+ <Address Modul="3" Diskret="6">10,6</Address>
+ <Address Modul="3" Diskret="7">10,7</Address>
+ <Address Modul="3" Diskret="8">10,8</Address>
+ <Address Modul="3" Diskret="9">10,9</Address>
+ <Address Modul="3" Diskret="10">10,10</Address>
+
+
+  <Address Modul="4" Diskret="0">12,0</Address>
+  <Address Modul="4" Diskret="1">12,1</Address>
+  <Address Modul="4" Diskret="2">12,2</Address>
+  <Address Modul="4" Diskret="3">12,3</Address>
+  <Address Modul="4" Diskret="4">12,4</Address>
+  <Address Modul="4" Diskret="5">12,5</Address>
+  <Address Modul="4" Diskret="6">12,6</Address>
+  <Address Modul="4" Diskret="7">12,7</Address>
+  <Address Modul="4" Diskret="8">12,8</Address>
+  <Address Modul="4" Diskret="9">12,9</Address>
+  <Address Modul="4" Diskret="10">12,10</Address>
+
+
+</FailsContainer>
+ 
+ 
+ 
+ 
+ <!--Состояния-->
+ <StatesContainer> 
+ 
+<Address Modul="1" Diskret="0">7,0</Address>
+ <Address Modul="1" Diskret="1">7,1</Address>
+ <Address Modul="1" Diskret="2">7,2</Address>
+ <Address Modul="1" Diskret="3">7,3</Address>
+ <Address Modul="1" Diskret="4">7,4</Address>
+ <Address Modul="1" Diskret="5">7,5</Address>
+ <Address Modul="1" Diskret="6">7,6</Address>
+ <Address Modul="1" Diskret="7">7,7</Address>
+ <Address Modul="1" Diskret="8">7,8</Address>
+ <Address Modul="1" Diskret="9">7,9</Address>
+ <Address Modul="1" Diskret="10">7,10</Address> 
+ 
+ <Address Modul="2" Diskret="0">9,0</Address>
+ <Address Modul="2" Diskret="1">9,1</Address>
+ <Address Modul="2" Diskret="2">9,2</Address>
+ <Address Modul="2" Diskret="3">9,3</Address>
+ <Address Modul="2" Diskret="4">9,4</Address>
+ <Address Modul="2" Diskret="5">9,5</Address>
+ <Address Modul="2" Diskret="6">9,6</Address>
+ <Address Modul="2" Diskret="7">9,7</Address>
+ <Address Modul="2" Diskret="8">9,8</Address>
+ <Address Modul="2" Diskret="9">9,9</Address>
+ <Address Modul="2" Diskret="10">9,10</Address> 
+ 
+ <Address Modul="3" Diskret="0">11,0</Address>
+ <Address Modul="3" Diskret="1">11,1</Address>
+ <Address Modul="3" Diskret="2">11,2</Address>
+ <Address Modul="3" Diskret="3">11,3</Address>
+ <Address Modul="3" Diskret="4">11,4</Address>
+ <Address Modul="3" Diskret="5">11,5</Address>
+ <Address Modul="3" Diskret="6">11,6</Address>
+ <Address Modul="3" Diskret="7">11,7</Address>
+ <Address Modul="3" Diskret="8">11,8</Address>
+ <Address Modul="3" Diskret="9">11,9</Address>
+ <Address Modul="3" Diskret="10">11,10</Address>
+
+
+   <Address Modul="4" Diskret="0">13,0</Address>
+   <Address Modul="4" Diskret="1">13,1</Address>
+   <Address Modul="4" Diskret="2">13,2</Address>
+   <Address Modul="4" Diskret="3">13,3</Address>
+   <Address Modul="4" Diskret="4">13,4</Address>
+   <Address Modul="4" Diskret="5">13,5</Address>
+   <Address Modul="4" Diskret="6">13,6</Address>
+   <Address Modul="4" Diskret="7">13,7</Address>
+   <Address Modul="4" Diskret="8">13,8</Address>
+   <Address Modul="4" Diskret="9">13,9</Address>
+   <Address Modul="4" Diskret="10">13,10</Address>
+
+
+
+ </StatesContainer>
+
+
+
+  <!--дата и время-->
+  <DateTimeContainer>
+
+    <Address>1008</Address>
+
+  </DateTimeContainer>
+ 
+ 
+</AddressesContainer>

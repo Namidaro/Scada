@@ -1,0 +1,225 @@
+﻿<views:MainContentView
+    x:Class="ULA.Presentation.Views.ConfigurationModeView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:ULA.Presentation.Converters"
+    xmlns:converters1="clr-namespace:ULA.Presentation.SharedResourses.Converters;assembly=ULA.Presentation.SharedResourses"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:image="clr-namespace:ULA.Presentation.Views.Image"
+    xmlns:infrastructure="clr-namespace:ULA.Presentation.Infrastructure;assembly=ULA.Presentation.Infrastructure"
+    xmlns:markups="clr-namespace:ULA.Presentation.SharedResourses.Markups;assembly=ULA.Presentation.SharedResourses"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:presentation="clr-namespace:ULA.AddinsHost.Presentation;assembly=ULA.AddinsHost"
+    xmlns:regions="http://www.codeplex.com/CompositeWPF"
+    xmlns:views="clr-namespace:ULA.Presentation.Infrastructure.Views;assembly=ULA.Presentation.Infrastructure"
+    xmlns:views1="clr-namespace:ULA.Presentation.Views"
+    xmlns:regions1="http://prismlibrary.com/"
+    Title="{markups:LocalizationResourcesExtension ConfigurationMode}"
+    d:DesignHeight="300"
+    d:DesignWidth="300"
+    mc:Ignorable="d">
+    <views:MainContentView.InputBindings>
+        <KeyBinding Modifiers="Control" 
+                    Key="Q"
+                    Command="{Binding CreateNewVirtualDeviceCommand}"/>
+
+    </views:MainContentView.InputBindings>
+    <views:MainContentView.Resources>
+
+        <converters:ImageVisibilityConverter x:Key="ImageVisibilityConverter" />
+        <converters:ImageEditingModeToVisibilityConverter x:Key="ImageEditingModeToVisibilityConverter" />
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <converters1:ObjectAsBoolToVisibilityRevertConverter x:Key="ObjectAsBoolToVisibilityRevertConverter" />
+
+        <ControlTemplate x:Key="ResizeDecoratorTemplate" TargetType="Control">
+            <Grid>
+                <image:ResizeThumb
+                    Height="3"
+                    Margin="0,-4,0,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    BorderBrush="{DynamicResource Accent}"
+                    BorderThickness="0.6"
+                    Cursor="SizeNS" />
+                <image:ResizeThumb
+                    Width="3"
+                    Margin="-4,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Stretch"
+                    BorderBrush="{DynamicResource Accent}"
+                    BorderThickness="0.6"
+                    Cursor="SizeWE" />
+                <image:ResizeThumb
+                    Width="3"
+                    Margin="0,0,-4,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Stretch"
+                    BorderBrush="{DynamicResource Accent}"
+                    BorderThickness="0.6"
+                    Cursor="SizeWE" />
+                <image:ResizeThumb
+                    Height="3"
+                    Margin="0,0,0,-4"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Bottom"
+                    BorderBrush="{DynamicResource Accent}"
+                    BorderThickness="0.6"
+                    Cursor="SizeNS" />
+                <image:ResizeThumb
+                    Width="7"
+                    Height="7"
+                    Margin="-6,-6,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    BorderBrush="{DynamicResource Accent}"
+                    BorderThickness="0.6"
+                    Cursor="SizeNWSE" />
+                <image:ResizeThumb
+                    Width="7"
+                    Height="7"
+                    Margin="0,-6,-6,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    BorderBrush="{DynamicResource Accent}"
+                    BorderThickness="0.6"
+                    Cursor="SizeNESW" />
+                <image:ResizeThumb
+                    Width="7"
+                    Height="7"
+                    Margin="-6,0,0,-6"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    BorderBrush="{DynamicResource Accent}"
+                    BorderThickness="0.6"
+                    Cursor="SizeNESW" />
+                <image:ResizeThumb
+                    Width="7"
+                    Height="7"
+                    Margin="0,0,-6,-6"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    BorderBrush="{DynamicResource Accent}"
+                    BorderThickness="0.6"
+                    Cursor="SizeNWSE" />
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="MoveThumbTemplate" TargetType="{x:Type image:MoveThumb}">
+            <Rectangle Fill="Transparent" />
+        </ControlTemplate>
+        <ControlTemplate x:Key="DesignerItemTemplate" TargetType="ContentControl">
+            <Grid DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}">
+                <image:MoveThumb
+                    Cursor="SizeAll"
+                    Template="{StaticResource MoveThumbTemplate}"
+                    Visibility="{TemplateBinding ContentControl.Content,
+                                                 Converter={StaticResource ImageEditingModeToVisibilityConverter}}" />
+                <Control Template="{StaticResource ResizeDecoratorTemplate}" Visibility="{TemplateBinding ContentControl.Content, Converter={StaticResource ImageEditingModeToVisibilityConverter}}" />
+                <ContentPresenter Content="{TemplateBinding ContentControl.Content}" />
+            </Grid>
+        </ControlTemplate>
+
+        <DataTemplate x:Key="BackgroundPictureDataTemplate" DataType="{x:Type presentation:IBackgroundPicture}">
+            <Image IsHitTestVisible="False" Source="{Binding BackgroundImageSource}" />
+        </DataTemplate>
+
+    </views:MainContentView.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="10" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid
+            Grid.Row="0"
+            Grid.Column="0"
+            ZIndex="3">
+            <Menu
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Style="{DynamicResource MainMenuStyle}">            
+                <MenuItem Header="{markups:LocalizationResourcesExtension VirtualDeviceHeader}" Style="{DynamicResource MainMenuRootItemStyle}">
+                    <MenuItem InputGestureText="" Command="{Binding CreateNewVirtualDeviceCommand}" Header="{markups:LocalizationResourcesExtension NewDeviceHeader}" />
+                    <!--<MenuItem
+                        Command="{Binding EditCurrentDeviceCommand}"
+                        CommandParameter="{Binding CurrentDevice}"
+                        Header="{markups:LocalizationResourcesExtension EditSelectedDeviceHeader}" />-->
+                    <MenuItem
+                        Command="{Binding DeleteCurrentDeviceCommand}"
+                        CommandParameter="{Binding CurrentDevice}"
+                        Header="{markups:LocalizationResourcesExtension DeleteSelectedDeviceHeader}" />
+                </MenuItem>
+                <MenuItem Header="Настройки" Style="{DynamicResource MainMenuRootItemStyle}">
+                    <MenuItem Command="{Binding NavigateToExtraSettingsCommand}" Header="Дополнительные настройки"></MenuItem>
+                    <MenuItem Command="{Binding NaigateToEditPassword}" Header="Изменить пароль" />
+                    <MenuItem Header="Изображение">
+                        <MenuItem Command="{Binding AddImageCommand}" Header="Добавить изображение" />
+                        <MenuItem Command="{Binding ChangeImageEditingModeToOff}" Header="Выйти из режима редактирования">
+                            <MenuItem.Style>
+                                <Style>
+                                    <Setter Property="MenuItem.Background" Value="White" />
+                                    <Setter Property="MenuItem.Foreground" Value="Black" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding BackgroundPicture.IsEditMode}" Value="true">
+                                            <Setter Property="MenuItem.Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding BackgroundPicture.IsEditMode}" Value="false">
+                                            <Setter Property="MenuItem.Visibility" Value="Collapsed" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding BackgroundPicture.BackgroundImageSource}" Value="{x:Null}">
+                                            <Setter Property="MenuItem.Visibility" Value="Collapsed" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </MenuItem.Style>
+                        </MenuItem>
+                        <MenuItem Command="{Binding ChangeImageEditingModeToOn}" Header="Войти в режим редактирования">
+                            <MenuItem.Style>
+                                <Style>
+                                    <Setter Property="MenuItem.Background" Value="White" />
+                                    <Setter Property="MenuItem.Foreground" Value="Black" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding BackgroundPicture.IsEditMode}" Value="false">
+                                            <Setter Property="MenuItem.Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding BackgroundPicture.IsEditMode}" Value="true">
+                                            <Setter Property="MenuItem.Visibility" Value="Collapsed" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding BackgroundPicture.BackgroundImageSource}" Value="{x:Null}">
+                                            <Setter Property="MenuItem.Visibility" Value="Collapsed" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </MenuItem.Style>
+                        </MenuItem>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="{markups:LocalizationResourcesExtension HistoryHeader}" Style="{DynamicResource MainMenuRootItemStyle}">
+                    <MenuItem Command="{Binding NavigateToJournalOfSystemCommand}" Header="{markups:LocalizationResourcesExtension JournalOfSystemsHeader}" />
+                </MenuItem>
+                <MenuItem Header="{markups:LocalizationResourcesExtension HelpHeader}" Style="{DynamicResource MainMenuRootItemStyle}">
+                    <MenuItem Command="{Binding NavigateToAboutCommand}" Header="{markups:LocalizationResourcesExtension AboutHeader}" />
+                    <MenuItem Command="{Binding NavigateToHelpCommand}" Header="{markups:LocalizationResourcesExtension HelpHeader}" />
+                </MenuItem>
+            </Menu>
+        </Grid>
+        <Canvas
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            ZIndex="{Binding BackgroundPicture.ZIndexValue}">
+            <ContentControl
+                Name="DesignerItem"
+                Canvas.Left="{Binding BackgroundPicture.CanvasLeft, Mode=TwoWay}"
+                Canvas.Top="{Binding BackgroundPicture.CanvasTop, Mode=TwoWay}"
+                Width="{Binding BackgroundPicture.ImageWidth, Mode=TwoWay}"
+                Height="{Binding BackgroundPicture.ImageHeight, Mode=TwoWay}"
+                PreviewMouseRightButtonDown="DesignerItem_OnPreviewMouseRightButtonDown"
+                Template="{StaticResource DesignerItemTemplate}"
+                Visibility="{Binding BackgroundPicture, Converter={StaticResource ImageVisibilityConverter}}">
+                <Image IsHitTestVisible="False" Source="{Binding BackgroundPicture.BackgroundImageSource}" />
+            </ContentControl>
+        </Canvas>
+        <Grid Grid.Row="2" ZIndex="3">
+            <ContentControl regions1:RegionManager.RegionName="{x:Static infrastructure:ApplicationGlobalNames.CONFIGURATION_REGION_NAME}" />
+        </Grid>
+    </Grid>
+</views:MainContentView>

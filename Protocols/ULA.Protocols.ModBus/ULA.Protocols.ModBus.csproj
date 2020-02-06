@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C574FF29-F6A9-4294-8BAE-DC68A732EC23}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YP.Toolkit.Protocols.ModBus</RootNamespace>
+    <AssemblyName>YP.Toolkit.Protocols.ModBus</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\YP.Toolkit.Protocols.ModBus.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Exceptions\ClientModbusRequestException.cs" />
+    <Compile Include="Exceptions\ClientModbusResponseException.cs" />
+    <Compile Include="Exceptions\DisconnectionException.cs" />
+    <Compile Include="Exceptions\ConnectionLostException.cs" />
+    <Compile Include="Exceptions\ServerConnectionException.cs" />
+    <Compile Include="Exceptions\ServerDisconnectionException.cs" />
+    <Compile Include="Exceptions\ServerRequestException.cs" />
+    <Compile Include="Exceptions\ServerResponseExeption.cs" />
+    <Compile Include="Exceptions\TransportReadException.cs" />
+    <Compile Include="Exceptions\TransportWriteException.cs" />
+    <Compile Include="GlobalSettings\Annotations.cs" />
+    <Compile Include="GlobalSettings\AssemblyInfo.cs" />
+    <Compile Include="IO\ITransport.cs" />
+    <Compile Include="IO\KeepConnectionTransport.cs" />
+    <Compile Include="IO\NullTransport.cs" />
+    <Compile Include="IO\TcpIpSocketTransport.cs" />
+    <Compile Include="IO\TransportBase.cs" />
+    <Compile Include="Logger\Category.cs" />
+    <Compile Include="Logger\ILogService.cs" />
+    <Compile Include="Logger\InternalLoggerService.cs" />
+    <Compile Include="Logger\LoggerServiceLocator.cs" />
+    <Compile Include="Logger\Priority.cs" />
+    <Compile Include="Properties\LocalAssemblyInfo.cs" />
+    <Compile Include="Protocols\ClientSide\ModbusClientFacadeBase.cs" />
+    <Compile Include="Protocols\ClientSide\Modbus\TcpModbusClient.cs" />
+    <Compile Include="Protocols\ClientSide\IModbusRawClientFacade.cs" />
+    <Compile Include="Protocols\ClientSide\Modbus\ModbusClientBase.cs" />
+    <Compile Include="Protocols\ClientSide\Requests\IModbusClientRequest.cs" />
+    <Compile Include="Protocols\IModbusRequest.cs" />
+    <Compile Include="Protocols\ClientSide\Requests\ModbusClientRequestBase.cs" />
+    <Compile Include="Protocols\ClientSide\Requests\TcpModbusClientRequest.cs" />
+    <Compile Include="Protocols\ClientSide\Requests\TcpReadInputRegistersClientRequest.cs" />
+    <Compile Include="Protocols\ClientSide\Requests\TcpWriteMultipleRegistersClientRequest.cs" />
+    <Compile Include="Protocols\IModbusResponse.cs" />
+    <Compile Include="Protocols\ClientSide\Responses\ModbusClientResponseBase.cs" />
+    <Compile Include="Protocols\ClientSide\Responses\TcpModbusClientResponse.cs" />
+    <Compile Include="Protocols\ClientSide\TcpModbusRawClientFacade.cs" />
+    <Compile Include="Protocols\ClientSide\Responses\TcpReadInputRegistersClientResponse.cs" />
+    <Compile Include="Protocols\ClientSide\Responses\TcpWriteMultipleRegistersClientResponse.cs" />
+    <Compile Include="Protocols\ModbusBase.cs" />
+    <Compile Include="Protocols\ServerSide\Modbus\Connections\TcpModbusServerConnection.cs" />
+    <Compile Include="Protocols\ServerSide\Modbus\Events\IServerEventsExecutor.cs" />
+    <Compile Include="Protocols\ServerSide\Modbus\Events\IServerEventsProvider.cs" />
+    <Compile Include="Protocols\ServerSide\Modbus\Events\ReadInputRegistersEventArgs.cs" />
+    <Compile Include="Protocols\ServerSide\Modbus\Events\ServerEventArgs.cs" />
+    <Compile Include="Protocols\ServerSide\Modbus\Events\ServerEventsProvider.cs" />
+    <Compile Include="Protocols\ServerSide\Modbus\Events\WriteMultipleRegistersEventArgs.cs" />
+    <Compile Include="Protocols\ServerSide\Modbus\IModbusServerHandler.cs" />
+    <Compile Include="Protocols\ServerSide\Modbus\ITcpModbusServerHandler.cs" />
+    <Compile Include="Protocols\ServerSide\Modbus\ModbusServerBase.cs" />
+    <Compile Include="Protocols\ServerSide\Modbus\TcpModbusServer.cs" />
+    <Compile Include="Protocols\ServerSide\Requests\IModbusServerRequest.cs" />
+    <Compile Include="Protocols\ServerSide\Requests\ReadInputRegistersServerRequest.cs" />
+    <Compile Include="Protocols\ServerSide\Requests\ModbusServerRequestFactory.cs" />
+    <Compile Include="Protocols\ServerSide\Requests\TcpModbusServerRequest.cs" />
+    <Compile Include="Protocols\ServerSide\Requests\WriteMultipleRegistersServerRequest.cs" />
+    <Compile Include="Protocols\ServerSide\Responses\IModbusServerResponse.cs" />
+    <Compile Include="Protocols\ServerSide\Responses\ModbusServerResponseBase.cs" />
+    <Compile Include="Protocols\ServerSide\Responses\ReadInputRegistersResponse.cs" />
+    <Compile Include="Protocols\ServerSide\Responses\TcpModbusServerResponse.cs" />
+    <Compile Include="Protocols\ServerSide\ModbusServerRequestEventArgs.cs" />
+    <Compile Include="Protocols\ServerSide\Responses\WriteMultipleRegistersResponse.cs" />
+    <Compile Include="Resources\ProtocolConstants.cs" />
+    <Compile Include="Resources\ResourceConstants.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ULA.Protocols.System\ULA.Protocols.System.csproj">
+      <Project>{28aed74e-a17a-4a54-aa11-16160ae797b3}</Project>
+      <Name>ULA.Protocols.System</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,508 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutHeader" xml:space="preserve">
+    <value>О программе</value>
+    <comment>About</comment>
+  </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>Управление Наружным Освещением</value>
+    <comment>BEMN Urban Lights Aplication</comment>
+  </data>
+  <data name="BusyDialogTitle" xml:space="preserve">
+    <value>Ожидайте...</value>
+    <comment>Title in Busy Dialog</comment>
+  </data>
+  <data name="CancelButtonContent" xml:space="preserve">
+    <value>Отмена</value>
+    <comment>Content of Cancel button</comment>
+  </data>
+  <data name="CitywideCommandHeader" xml:space="preserve">
+    <value>Общие команды</value>
+    <comment>Citywide command</comment>
+  </data>
+  <data name="CommonDeviceSettings" xml:space="preserve">
+    <value>Общее</value>
+    <comment>Common device settings </comment>
+  </data>
+  <data name="ConfigurationMode" xml:space="preserve">
+    <value>Режим конфигурации</value>
+    <comment>Configuration Mode</comment>
+  </data>
+  <data name="CreateNewDeviceDialogTitle" xml:space="preserve">
+    <value>Создать виртуальное устройство</value>
+    <comment>Title of create new device dialog</comment>
+  </data>
+  <data name="DeleteSelectedDeviceHeader" xml:space="preserve">
+    <value>Удалить</value>
+    <comment>Delete Selected Device</comment>
+  </data>
+  <data name="DeviceDescription" xml:space="preserve">
+    <value>Описание устройства</value>
+    <comment>Device description</comment>
+  </data>
+  <data name="DeviceDescriptionTooltip" xml:space="preserve">
+    <value>Краткое описание виртуального устройства</value>
+    <comment>DeviceDescriptionTooltip ("This field represents the description of the device. It is recomended to fill this field.")</comment>
+  </data>
+  <data name="DeviceName" xml:space="preserve">
+    <value>Имя устройства</value>
+    <comment>Device name</comment>
+  </data>
+  <data name="DeviceNameTooltip" xml:space="preserve">
+    <value>Название должно содержать символы или цифры и длина вводимого текста не должна превышать 20 символов</value>
+    <comment>DeviceNameTooltip ("The name of the device should be unique and contains numbers and letters.")</comment>
+  </data>
+  <data name="EditSelectedDeviceHeader" xml:space="preserve">
+    <value>Редактировать</value>
+    <comment>Edit Selected Device</comment>
+  </data>
+  <data name="HelpHeader" xml:space="preserve">
+    <value>Помощь</value>
+    <comment>Help</comment>
+  </data>
+  <data name="JournalOfSystemsHeader" xml:space="preserve">
+    <value>Журнал системы</value>
+    <comment>Journal of systems</comment>
+  </data>
+  <data name="NewDeviceHeader" xml:space="preserve">
+    <value>Новое</value>
+    <comment>New Device</comment>
+  </data>
+  <data name="NoButtonContent" xml:space="preserve">
+    <value>Нет</value>
+    <comment>Content of No button</comment>
+  </data>
+  <data name="OkButtonContent" xml:space="preserve">
+    <value>Ok</value>
+    <comment>Content of Ok button</comment>
+  </data>
+  <data name="RuntimeMode" xml:space="preserve">
+    <value>Режим реального времени</value>
+    <comment>Runtime mode</comment>
+  </data>
+  <data name="TcpIpAddress" xml:space="preserve">
+    <value>Ip - адрес устройства</value>
+    <comment>Tcp/Ip Address</comment>
+  </data>
+  <data name="TcpIpAddressTooltip" xml:space="preserve">
+    <value>Порт виртуального устройства. Применяется валидация свойственная TCP/IP порту.</value>
+    <comment>TcpIpAddressTooltip("The Tcp/Ip port value. The value should be integer and exists in range of [0;9999]")</comment>
+  </data>
+  <data name="TcpIpPort" xml:space="preserve">
+    <value>Порт устройства</value>
+    <comment>Tcp/Ip port</comment>
+  </data>
+  <data name="TCPModbusDriverSettings" xml:space="preserve">
+    <value>Драйвер (TCP Modbus)</value>
+    <comment>TCP Modbus Driver Settings string</comment>
+  </data>
+  <data name="TCPModbusDriverSettingsTooltip" xml:space="preserve">
+    <value>IP-адрес виртуального устройства. Применяется валидация свойственная для IP-адреса. Части адреса должны быть разделены точками ('.').</value>
+    <comment>TCPModbusDriverSettingsTooltip ("The Tcp/Ip address of a remote device. The parts of the address should be devided by '.'.")</comment>
+  </data>
+  <data name="TimeSynchronizationHeader" xml:space="preserve">
+    <value>Синхронизация времени</value>
+    <comment>Time synchronization</comment>
+  </data>
+  <data name="ViewSelectedDeviceSchemaHeader" xml:space="preserve">
+    <value>Перейти на схему</value>
+    <comment>View Selected Device Schema</comment>
+  </data>
+  <data name="VirtualDeviceHeader" xml:space="preserve">
+    <value>Устройство</value>
+    <comment>Virtual Device</comment>
+  </data>
+  <data name="WaitingBusyDialogMessage" xml:space="preserve">
+    <value>Идёт загрузка. Ожидайте....</value>
+    <comment>Message of waiting in busy dialog</comment>
+  </data>
+  <data name="YesButtonContent" xml:space="preserve">
+    <value>Да</value>
+    <comment>Content of Yes button</comment>
+  </data>
+  <data name="AboutCopyright" xml:space="preserve">
+    <value>Внимание! Данная программа защищается законом об авторских правах. Незаконное копирование или распространение этой программы или какой-либо её части может повлечь суровые гражданские или уголовные наказания и будет преследоваться по всей строгости закона.</value>
+    <comment>Information about Copyright</comment>
+  </data>
+  <data name="AutoMode" xml:space="preserve">
+    <value>Авторежим</value>
+    <comment>AutoMode </comment>
+  </data>
+  <data name="CitywideCommandsTitle" xml:space="preserve">
+    <value>Управление командами</value>
+    <comment>Title of citywide commands</comment>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Закрыть</value>
+    <comment>Close</comment>
+  </data>
+  <data name="StartAll" xml:space="preserve">
+    <value>Включить все</value>
+    <comment>StartAll</comment>
+  </data>
+  <data name="Starters" xml:space="preserve">
+    <value>Пускатели</value>
+    <comment>Starters</comment>
+  </data>
+  <data name="StopAll" xml:space="preserve">
+    <value>Отключить все</value>
+    <comment>StopAll</comment>
+  </data>
+  <data name="VersionProgram" xml:space="preserve">
+    <value>Версия 5.0</value>
+    <comment>Information about version program</comment>
+  </data>
+  <data name="DataStorageFilePathExceptionMessage" xml:space="preserve">
+    <value>Путь к хранилищу информации об устройствах задан не верно</value>
+    <comment>Devices data storage path is incorrect</comment>
+  </data>
+  <data name="DataStorageFileFormatExceptionMessage" xml:space="preserve">
+    <value>Формат файла хранилища данных устройства не верен</value>
+    <comment>Device data storage format is incorrect</comment>
+  </data>
+  <data name="DeviceNameValidationNotSet" xml:space="preserve">
+    <value>Имя устройства не задано</value>
+    <comment>The name of the device is not set</comment>
+  </data>
+  <data name="DeviceNameValidationRange" xml:space="preserve">
+    <value>Имя устройства должно содержать от 2-х до 20-ти символов.</value>
+    <comment>The length of device's name is out of range (from 2 to 20)</comment>
+  </data>
+  <data name="IpAddressValidationFormat" xml:space="preserve">
+    <value>Неверный формат IP адреса устройства</value>
+    <comment>Bad IP Address format</comment>
+  </data>
+  <data name="IpAddressValidationNotSet" xml:space="preserve">
+    <value>IP адрес устройства не задан</value>
+    <comment>IP address is not set</comment>
+  </data>
+  <data name="IpPortValidationFormat" xml:space="preserve">
+    <value>IP порт устройства имеет неверный формат</value>
+    <comment>Bad IP port format</comment>
+  </data>
+  <data name="IpPortValidationNotSet" xml:space="preserve">
+    <value>IP порт устройства задан</value>
+    <comment>IP port is not set</comment>
+  </data>
+  <data name="IpPortValidationRange" xml:space="preserve">
+    <value>IP порт устройства должен быть в пределах от 0 до 9999</value>
+    <comment>The IP port value is out of range (from 0 to 9999)</comment>
+  </data>
+  <data name="LogDate" xml:space="preserve">
+    <value>Дата</value>
+    <comment>Date of action (Log Info)</comment>
+  </data>
+  <data name="LogDescription" xml:space="preserve">
+    <value>Действие</value>
+    <comment>Description action(Log Info)</comment>
+  </data>
+  <data name="SubmitCreateButtonContent" xml:space="preserve">
+    <value>Создать</value>
+    <comment>Content of submit button</comment>
+  </data>
+  <data name="NoDevicesDetected" xml:space="preserve">
+    <value>Устройства не найдены</value>
+    <comment>No devices detected</comment>
+  </data>
+  <data name="WantToCreateNewDevice" xml:space="preserve">
+    <value>Хотите ли вы создать новое устройство?</value>
+    <comment>Do you want to create a new device?</comment>
+  </data>
+  <data name="DeviceNameExample" xml:space="preserve">
+    <value>Имя уcтройства 1</value>
+    <comment>Example of device name</comment>
+  </data>
+  <data name="HistoryHeader" xml:space="preserve">
+    <value>История</value>
+    <comment>HistoryHeader </comment>
+  </data>
+  <data name="IpAddressExample" xml:space="preserve">
+    <value>127.0.0.1</value>
+    <comment>Example of ip address</comment>
+  </data>
+  <data name="NoDeviceDetected" xml:space="preserve">
+    <value>Устройство не найдено</value>
+    <comment>No devices detected</comment>
+  </data>
+  <data name="PortExample" xml:space="preserve">
+    <value>4444</value>
+    <comment>Example of port</comment>
+  </data>
+  <data name="WantCreateDevice" xml:space="preserve">
+    <value>Вы хотите создать новое устройство?</value>
+    <comment>Do you want to create a new device?</comment>
+  </data>
+  <data name="ValidationTemplate" xml:space="preserve">
+    <value>Количество ошибок: {0}</value>
+    <comment>Validation TextBox Bonding template</comment>
+  </data>
+  <data name="ErrorHeader" xml:space="preserve">
+    <value>Ошибка</value>
+    <comment>Error</comment>
+  </data>
+  <data name="UnexpectedErrorMessagePattern" xml:space="preserve">
+    <value>Во время выполнения операции обнаружена ошибка: {0}</value>
+    <comment>An unexcpected error has occured while performing the operation: {0}</comment>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>От:</value>
+    <comment>From in russian</comment>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>До:</value>
+    <comment>To in russian</comment>
+  </data>
+  <data name="DeviceAlreadyExistsExceptionMessageFormat" xml:space="preserve">
+    <value>Устройство с именем {0} уже существует.</value>
+    <comment>The device with {0} name already exists in the system</comment>
+  </data>
+  <data name="SynchronizationTimeTitle" xml:space="preserve">
+    <value>Синхронизация времени</value>
+    <comment>Title of SycnchronizationTimeInteractionView</comment>
+  </data>
+  <data name="DownSymbol" xml:space="preserve">
+    <value>-</value>
+    <comment>Equals symbol to Down</comment>
+  </data>
+  <data name="Synchronize" xml:space="preserve">
+    <value>Синхронизировать</value>
+    <comment>Synchronize in russian localization</comment>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Время</value>
+    <comment>Time in russian localization</comment>
+  </data>
+  <data name="UpSymbol" xml:space="preserve">
+    <value>+</value>
+    <comment>Equals symbol to Up</comment>
+  </data>
+  <data name="UnknownDeviceTypeExceptionMessageFormat" xml:space="preserve">
+    <value>Тип устройства {0} не найдет в системе.</value>
+    <comment>The device type {0} can't be found in the system</comment>
+  </data>
+  <data name="DeviceExceptionInfoPartMessageFormat" xml:space="preserve">
+    <value>Ошибка в устройстве: {0}.</value>
+    <comment>An exception in device with the info: {0}</comment>
+  </data>
+  <data name="DeviceExceptionSimpleMessage" xml:space="preserve">
+    <value>Обнаружена ошибка при работе с устройством.</value>
+    <comment>Un error occured while working with device.</comment>
+  </data>
+  <data name="NoDeviceForConfigurationExceptionMessage" xml:space="preserve">
+    <value>Функционал устройства не реализован для режиме конфигурации.</value>
+    <comment>There is no device implementation for configuration mode.</comment>
+  </data>
+  <data name="AomEntityTypeNullTypeExceptionMessage" xml:space="preserve">
+    <value>Тип сущности не может быть пустым</value>
+    <comment>The type of the entity can't be null</comment>
+  </data>
+  <data name="AomPropertyNullCollectionExceptionMessage" xml:space="preserve">
+    <value>Коллекция типов свойств в нотации AOM не задана</value>
+    <comment>Collection of properties can't be null</comment>
+  </data>
+  <data name="AomPropertyTypeNullPropertyTypeExceptionMessage" xml:space="preserve">
+    <value>Тип свойства не может быть пустым</value>
+    <comment>The type of the property can't be null</comment>
+  </data>
+  <data name="AomPropertyTypePropertyNameExceptionMessage" xml:space="preserve">
+    <value>Имя свойства не может быть пустым</value>
+    <comment>The name of a property can't be null or empty</comment>
+  </data>
+  <data name="DriverExceptionInfoPartMessageFormat" xml:space="preserve">
+    <value>Ошибка в драйвере: {0}.</value>
+    <comment>An exception in the driver with the info: {0}</comment>
+  </data>
+  <data name="DriverExceptionSimpleMessage" xml:space="preserve">
+    <value>Обнаружена ошибка при работе с драйвером.</value>
+    <comment>Un error occured while working with driver.</comment>
+  </data>
+  <data name="DriverAlreadyExistsExceptionMessageFormat" xml:space="preserve">
+    <value>Драйвер с такими параметрами уже существует. Хост {0}, Порт {1}</value>
+    <comment>The driver: {0} name already exists in the system</comment>
+  </data>
+  <data name="UnknownDriverTypeExceptionMessageFormat" xml:space="preserve">
+    <value>Тип драйвера {0} не найдет в системе.</value>
+    <comment>The driver type {0} can't be found in the system</comment>
+  </data>
+  <data name="DriverDataTableDataRowExistsExceptionMessageFormat" xml:space="preserve">
+    <value>Строка в таблице данных драйвера с идентификатором {0} уже существует</value>
+    <comment>The row with {0} identifier already exists in the driver data table</comment>
+  </data>
+  <data name="RepairDefand" xml:space="preserve">
+    <value>Устройство находится в режиме ремонта. Управление недоступно</value>
+  </data>
+  <data name="RepairDefandTitle" xml:space="preserve">
+    <value>Защита</value>
+  </data>
+  <data name="StarterNoExistMessage" xml:space="preserve">
+    <value>Команда не может быть послана</value>
+    <comment> No exist starter and command can't sended</comment>
+  </data>
+  <data name="Backlight" xml:space="preserve">
+    <value>Подсветка</value>
+  </data>
+  <data name="Evening" xml:space="preserve">
+    <value>Вечернее</value>
+  </data>
+  <data name="Full" xml:space="preserve">
+    <value>Полное</value>
+  </data>
+  <data name="Illumination" xml:space="preserve">
+    <value>Иллюминация</value>
+  </data>
+  <data name="Nighlighting" xml:space="preserve">
+    <value>Ночное</value>
+  </data>
+  <data name="StoregEnergy" xml:space="preserve">
+    <value>Энергосбережение</value>
+  </data>
+  <data name="ManualmodeCommand" xml:space="preserve">
+    <value>Ручной режим</value>
+  </data>
+  <data name="DriverDataTable" xml:space="preserve">
+    <value>Драйвер таблицы данных</value>
+    <comment>driverDataTable</comment>
+  </data>
+  <data name="DriverNotHaveDataTableSetup" xml:space="preserve">
+    <value>Драйвер с идентификатором {0} не имеет таблицы данных для настройки</value>
+    <comment>The driver with id {0} doesn't have data table to setup</comment>
+  </data>
+  <data name="NoAssociatedDriverExceptionMessage" xml:space="preserve">
+    <value>Ассоциируемый драйвер с текущим устройством не найден</value>
+    <comment>Can't get associated driver identifier</comment>
+  </data>
+  <data name="NotAccessFromPersistableToDriver" xml:space="preserve">
+    <value>Сохраненный слой не может получить доступ к драйверу с  ID:</value>
+    <comment>Can't access persistable layer for a driver with is id:</comment>
+  </data>
+  <data name="NotRestoreStateOfDriver" xml:space="preserve">
+    <value>Невозможно восстановить состояние драйвера с идентификатором:</value>
+    <comment>Can't restore the state of driver with id:</comment>
+  </data>
+  <data name="NotWorkWithDriverType" xml:space="preserve">
+    <value>Нет возможности работать с драйвером типа:</value>
+    <comment>Can't work with driver of type:</comment>
+  </data>
+  <data name="CommandOnTemplateTitle" xml:space="preserve">
+    <value>Управление по шаблонам</value>
+    <comment>Execute command using templates</comment>
+  </data>
+
+</root>

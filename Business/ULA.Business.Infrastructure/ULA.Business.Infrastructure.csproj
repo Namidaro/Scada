@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EDFE9736-6D0D-458F-84E7-56BC1A78FD6E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ULA.Business.Infrastructure</RootNamespace>
+    <AssemblyName>ULA.Business.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\ULA.Business.Infrastructure.XML</DocumentationFile>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Expression.Interactions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Practices.Prism.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.UnityExtensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.UnityExtensions.4.1.0.0\lib\NET40\Microsoft.Practices.Prism.UnityExtensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CommonServiceLocator.1.2\lib\portable-windows8+net40+sl5+windowsphone8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NLog.4.4.12\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.4.1.0.0\lib\NET40\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\SharedVersion\GlobalAssemblyVersion.cs">
+      <Link>Properties\GlobalAssemblyVersion.cs</Link>
+    </Compile>
+    <Compile Include="ApplicationModes\IConfigurationModeDevicesService.cs" />
+    <Compile Include="ApplicationModes\IConfigurationModeDriversService.cs" />
+    <Compile Include="ApplicationModes\IRuntimeModeDeviceServices.cs" />
+    <Compile Include="ApplicationModes\IRuntimeModeDriversService.cs" />
+    <Compile Include="BytesParsers\IRawBytesToDeviceStateParser.cs" />
+    <Compile Include="Commands\DeviceCommandData.cs" />
+    <Compile Include="Commands\ICommandSuccessRule.cs" />
+    <Compile Include="DataServices\IDefectAcknowledgingService.cs" />
+    <Compile Include="DataServices\IDataLoadingService.cs" />
+    <Compile Include="DataServices\IDataWritingService.cs" />
+    <Compile Include="DataServices\IDeviceCommandService.cs" />
+    <Compile Include="DataServices\IDeviceDataCache.cs" />
+    <Compile Include="DataServices\IDeviceLogLoadingService.cs" />
+    <Compile Include="DataServices\IGlobalDefectAcknowledgingService.cs" />
+    <Compile Include="DataServices\IMetadataParserService.cs" />
+    <Compile Include="DataServices\IRawBytesToDeviceStateParserService.cs" />
+    <Compile Include="DeviceDomain\CustomItems\ICascade.cs" />
+    <Compile Include="DeviceDomain\CustomItems\IDeviceCustomItems.cs" />
+    <Compile Include="DeviceDomain\CustomItems\IIndicator.cs" />
+    <Compile Include="DeviceDomain\CustomItems\ISignal.cs" />
+    <Compile Include="DeviceDomain\IAnalogData.cs" />
+    <Compile Include="DeviceDomain\IAnalogMeter.cs" />
+    <Compile Include="DeviceDomain\IDefectState.cs" />
+    <Compile Include="DeviceDomain\IEnergomeraAnalogMeter.cs" />
+    <Compile Include="DeviceDomain\IMsa961AnalogMeter.cs" />
+    <Compile Include="DeviceDomain\IResistor.cs" />
+    <Compile Include="DeviceStringKeys\DeviceStringKeys.cs" />
+    <Compile Include="DTOs\ILogInformation.cs" />
+    <Compile Include="DTOs\LogicalDeviceInformation.cs" />
+    <Compile Include="DTOs\LogicalDeviceStorageEntity.cs" />
+    <Compile Include="DTOs\LogicalDriverInformation.cs" />
+    <Compile Include="Commands\ICommandSender.cs" />
+    <Compile Include="DeviceDomain\IDeviceCommand.cs" />
+    <Compile Include="Enums\AnalogMetersEnum.cs" />
+    <Compile Include="Factories\IAnalogMeterFactory.cs" />
+    <Compile Include="Factories\ICustomItemsFactory.cs" />
+    <Compile Include="Factories\IDeviceCommandFactory.cs" />
+    <Compile Include="Factories\IRawBytesToDeviceStateParserFactory.cs" />
+    <Compile Include="Factories\IResistorFactory.cs" />
+    <Compile Include="DeviceDomain\CustomItems\IFeeder.cs" />
+    <Compile Include="DeviceDomain\IMalfunction.cs" />
+    <Compile Include="DeviceDomain\IRuntimeDevice.cs" />
+    <Compile Include="DeviceDomain\IStarter.cs" />
+    <Compile Include="Factories\IStarterFactory.cs" />
+    <Compile Include="Metadata\EntityMetadata.cs" />
+    <Compile Include="Metadata\MetadataFromDevice.cs" />
+    <Compile Include="PersistanceServices\IDevicePersistableContext.cs" />
+    <Compile Include="PersistanceServices\IDriverPersistableContext.cs" />
+    <Compile Include="PersistanceServices\IPersistanceService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TimerInterrogation\IAnalogTimerInterrogation.cs" />
+    <Compile Include="TimerInterrogation\IDeviceTimerInterrogationService.cs" />
+    <Compile Include="TimerInterrogation\ITimerInterrigationService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ApplicationConnectionService\ULA.ApplicationConnectionService.csproj">
+      <Project>{C6A93A8F-4240-4060-B708-92A66077EABC}</Project>
+      <Name>ULA.ApplicationConnectionService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Interceptors\ULA.AddinsHost\ULA.AddinsHost.csproj">
+      <Project>{7869e618-6828-4ffa-83b1-f3318e62a74c}</Project>
+      <Name>ULA.AddinsHost</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Interceptors\ULA.Common\ULA.Common.csproj">
+      <Project>{c5df1364-61c7-43a9-a8bc-38a40427959d}</Project>
+      <Name>ULA.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Interceptors\ULA.Interceptors\ULA.Interceptors.csproj">
+      <Project>{C0904323-0610-4DB3-9251-46091B9D3A1A}</Project>
+      <Name>ULA.Interceptors</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

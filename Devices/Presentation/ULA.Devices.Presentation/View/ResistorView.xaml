@@ -1,0 +1,104 @@
+﻿<UserControl
+    x:Class="ULA.Devices.Presentation.View.ResistorView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="clr-namespace:ULA.Presentation.SharedResourses.Converters;assembly=ULA.Presentation.SharedResourses"
+    d:DesignHeight="300"
+    d:DesignWidth="120"
+    mc:Ignorable="d">
+
+
+    <UserControl.Resources>
+        <converters:ObjAsBoolToStateLimeBrush x:Key="ObjAsBoolToStateLimeBrush" />
+
+    </UserControl.Resources>
+    <Viewbox Stretch="Fill">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Path     Height="140"  StrokeThickness="4" 
+                Stroke="{Binding IsStarterManagementFuseStateOn, Converter={StaticResource ObjAsBoolToStateBrush}}">
+                <Path.Style>
+                    <Style TargetType="Path">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Path=ParentStarterId}" Value="1">
+                                <Setter Property="Data" Value="M22,8 V130 M20, 8 A3,3 0 1 0 24,8 M25, 8"></Setter>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding Path=ParentStarterId}" Value="2">
+                                <Setter Property="Data" Value="M22,45 V130 M20, 45 A3,3 0 1 0 24,45 M25, 45"></Setter>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding Path=ParentStarterId}" Value="3">
+                                <Setter Property="Data" Value="M22,80 V130 M20, 80 A3,3 0 1 0 24,80 M25, 80"></Setter>
+                            </DataTrigger>
+
+
+
+                        </Style.Triggers>
+                    </Style>
+                </Path.Style>
+            </Path>
+            
+            
+            
+        
+            <StackPanel Grid.Row="1">
+                <Border
+                    Name="OuterBorder"
+                    Width="40"
+                    Height="100"
+                    Margin="2,0"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=IsDefectState}" Value="True">
+                                    <Setter Property="Background" Value="Yellow" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=IsDefectState}" Value="False">
+                                    <Setter Property="Background" Value="#FFFFFF" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                    <Border
+                        Name="InnerBorder"
+                        Margin="3"
+                        Background="{Binding IsOnState, Converter={StaticResource ObjAsBoolToStateLimeBrush}}"
+                        BorderBrush="Gray"
+                        BorderThickness="1">
+                        <!--<TextBlock
+                            Margin="0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Text="{Binding ResistorModul}"
+                            TextAlignment="Center" />-->
+                        <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="0" Text="M"></TextBlock>
+                                <TextBlock Margin="0" Text="{Binding ModuleNumber}"></TextBlock>
+
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="0" Text="Д"></TextBlock>
+                                <TextBlock Margin="0" Text="{Binding ResistorNumber}"></TextBlock>
+
+                            </StackPanel>
+                            <TextBlock HorizontalAlignment="Center" Margin="0" Text="{Binding ShortParentStarterDescription}"></TextBlock>
+
+                        </StackPanel>
+                    </Border>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Viewbox>
+
+
+</UserControl>

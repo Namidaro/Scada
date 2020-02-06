@@ -1,0 +1,432 @@
+﻿<views:InteractionViewBase
+    x:Class="ULA.Presentation.Views.Interactions.ExtraSettingsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:ULA.Presentation.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ULA.Presentation.Views.Interactions"
+    xmlns:markups="clr-namespace:ULA.Presentation.SharedResourses.Markups;assembly=ULA.Presentation.SharedResourses"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:ULA.Presentation.Infrastructure.Views;assembly=ULA.Presentation.Infrastructure"
+    Title="{Binding Title}"
+    mc:Ignorable="d">
+    <views:InteractionViewBase.Resources>
+        <converters:InversionConverter x:Key="InversionConverter" />
+    </views:InteractionViewBase.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="0"
+            Margin="6,10,0,14"
+            Width="300"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="19"
+            TextWrapping="WrapWithOverflow"
+            Style="{StaticResource FixedTextStyle}"
+            Text="      Автоквитирование            при отсутствии неисправности: " />
+        <StackPanel
+            Grid.Row="0"
+            Grid.Column="1"
+            Orientation="Horizontal">
+            <RadioButton
+                Width="120"
+                HorizontalContentAlignment="Center"
+                Content="{markups:LocalizationResourcesExtension YesButtonContent}"
+                IsChecked="{Binding Path=AcknowledgeEnabled, ValidatesOnDataErrors=True}"
+                Style="{DynamicResource RadioButtonStyle}" 
+                Margin="20,20,0,20"/>
+            <RadioButton
+                Width="120"
+                 Margin="0,20,20,20"
+                HorizontalContentAlignment="Center"
+                Content="{markups:LocalizationResourcesExtension NoButtonContent}"
+                IsChecked="{Binding Path=AcknowledgeEnabled, Converter={StaticResource InversionConverter}, ValidatesOnDataErrors=True}"
+                Style="{DynamicResource RadioButtonStyle}" />
+        </StackPanel>
+
+
+
+
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="19"
+            Style="{StaticResource FixedTextStyle}">
+            Таймаут ожидания ответа:
+        </TextBlock>
+
+
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="1"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+            <Viewbox
+                Height="40"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <UniformGrid
+                    Margin="3"
+                    VerticalAlignment="Center"
+                    Rows="1">
+                    <Button
+                        Width="50"
+                        Height="50"
+                        VerticalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Command="{Binding IncreaseQuerySecondCommand}"
+                        Content="{markups:LocalizationResourcesExtension UpSymbol}"
+                        FontSize="20"
+                        Style="{DynamicResource DialogButtonStyle}" />
+                    <TextBox
+                        Width="50"
+                        Height="50"
+                        VerticalAlignment="Stretch"
+                        VerticalContentAlignment="Center"
+                        Background="{DynamicResource Accent}"
+                        FontSize="20"
+                        Foreground="White"
+                        IsEnabled="False"
+                        Text="{Binding QueryTimeout}"
+                        TextAlignment="Center" />
+                    <Button
+                        Width="50"
+                        Height="50"
+                        Margin="0,-1,0,0"
+                        VerticalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Command="{Binding ReduceQuerySecondCommand}"
+                        Content="{markups:LocalizationResourcesExtension DownSymbol}"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Style="{DynamicResource DialogButtonStyle}" />
+                </UniformGrid>
+            </Viewbox>
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="19"
+                Style="{StaticResource FixedTextStyle}"
+                Text=" сек" />
+        </StackPanel>
+
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="0"
+            VerticalAlignment="Center"
+            FontSize="19"
+            Style="{StaticResource FixedTextStyle}"
+            Text="Период обновлений (схема): " />
+        <StackPanel
+            Grid.Row="2"
+            Grid.Column="1"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+
+            <Viewbox
+                Height="40"
+                Margin="0,10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <UniformGrid
+                    Margin="3"
+                    VerticalAlignment="Center"
+                    Rows="1">
+                    <Button
+                        Width="50"
+                        Height="50"
+                        VerticalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Command="{Binding IncreaseFullSecondCommand}"
+                        Content="{markups:LocalizationResourcesExtension UpSymbol}"
+                        FontSize="20"
+                        Style="{DynamicResource DialogButtonStyle}" />
+                    <TextBox
+                        Width="50"
+                        Height="50"
+                        VerticalAlignment="Stretch"
+                        VerticalContentAlignment="Center"
+                        Background="{DynamicResource Accent}"
+                        FontSize="20"
+                        Foreground="White"
+                        IsEnabled="False"
+                        Text="{Binding FullTimeout}"
+                        TextAlignment="Center" />
+                    <Button
+                        Width="50"
+                        Height="50"
+                        Margin="0,-1,0,0"
+                        VerticalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Command="{Binding ReduceFullSecondCommand}"
+                        Content="{markups:LocalizationResourcesExtension DownSymbol}"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Style="{DynamicResource DialogButtonStyle}" />
+                </UniformGrid>
+            </Viewbox>
+            <TextBlock
+                VerticalAlignment="Center"
+                FontSize="19"
+                Style="{StaticResource FixedTextStyle}"
+                Text=" сек" />
+        </StackPanel>
+
+
+        
+        <TextBlock
+            Grid.Row="3"
+            Grid.Column="0"
+            VerticalAlignment="Center"
+            FontSize="19"
+            Style="{StaticResource FixedTextStyle}"
+            Text="Период обновлений (список): " />
+        <StackPanel
+            Grid.Row="3"
+            Grid.Column="1"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+
+            <Viewbox
+                Height="40"
+                Margin="0,10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <UniformGrid
+                    Margin="3"
+                    VerticalAlignment="Center"
+                    Rows="1">
+                    <Button
+                        Width="50"
+                        Height="50"
+                        VerticalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Command="{Binding IncreasePartialSecondCommand}"
+                        Content="{markups:LocalizationResourcesExtension UpSymbol}"
+                        FontSize="20"
+                        Style="{DynamicResource DialogButtonStyle}" />
+                    <TextBox
+                        Width="50"
+                        Height="50"
+                        VerticalAlignment="Stretch"
+                        VerticalContentAlignment="Center"
+                        Background="{DynamicResource Accent}"
+                        FontSize="20"
+                        Foreground="White"
+                        IsEnabled="False"
+                        Text="{Binding PartialTimeout}"
+                        TextAlignment="Center" />
+                    <Button
+                        Width="50"
+                        Height="50"
+                        Margin="0,-1,0,0"
+                        VerticalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Command="{Binding ReducePartialSecondCommand}"
+                        Content="{markups:LocalizationResourcesExtension DownSymbol}"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Style="{DynamicResource DialogButtonStyle}" />
+                </UniformGrid>
+            </Viewbox>
+            <TextBlock
+                VerticalAlignment="Center"
+                FontSize="19"
+                Style="{StaticResource FixedTextStyle}"
+                Text=" сек" />
+        </StackPanel>
+
+
+        <TextBlock
+            Grid.Row="4"
+            Grid.Column="0"
+            VerticalAlignment="Center"
+            FontSize="19"
+            Width="300"
+            Style="{StaticResource FixedTextStyle}"
+            TextWrapping="WrapWithOverflow"
+            Text="Повторение команд управления           (количество повторов): " />
+        <StackPanel
+            Grid.Row="4"
+            Grid.Column="1"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+
+            <Viewbox
+                Height="40"
+                Margin="0,10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <UniformGrid
+                    Margin="3"
+                    VerticalAlignment="Center"
+                    Rows="1">
+                    <Button
+                        Width="50"
+                        Height="50"
+                        VerticalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Command="{Binding IncreaseNumberOfLightingCommandRepeatCommand}"
+                        Content="{markups:LocalizationResourcesExtension UpSymbol}"
+                        FontSize="20"
+                        Style="{DynamicResource DialogButtonStyle}" />
+                    <TextBox
+                        Width="50"
+                        Height="50"
+                        VerticalAlignment="Stretch"
+                        VerticalContentAlignment="Center"
+                        Background="{DynamicResource Accent}"
+                        FontSize="20"
+                        Foreground="White"
+                        IsEnabled="False"
+                        Text="{Binding NumberOfLightingCommandRepeat}"
+                        TextAlignment="Center" />
+                    <Button
+                        Width="50"
+                        Height="50"
+                        Margin="0,-1,0,0"
+                        VerticalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Command="{Binding ReduceNumberOfLightingCommandRepeatCommand}"
+                        Content="{markups:LocalizationResourcesExtension DownSymbol}"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Style="{DynamicResource DialogButtonStyle}" />
+                </UniformGrid>
+            </Viewbox>
+            <TextBlock
+                VerticalAlignment="Center"
+                FontSize="19"
+                Style="{StaticResource FixedTextStyle}"
+                Text=" шт." />
+        </StackPanel>
+
+
+
+
+        <TextBlock
+            Grid.Row="5"
+            Grid.Column="0"
+            VerticalAlignment="Center"
+            FontSize="19"
+            Width="300"
+            Style="{StaticResource FixedTextStyle}"
+            TextWrapping="WrapWithOverflow"
+            Text="Повторение команд управления           (интервал): " />
+        <StackPanel
+            Grid.Row="5"
+            Grid.Column="1"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+
+            <Viewbox
+                Height="40"
+                Margin="0,10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <UniformGrid
+                    Margin="3"
+                    VerticalAlignment="Center"
+                    Rows="1">
+                    <Button
+                        Width="50"
+                        Height="50"
+                        VerticalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Command="{Binding IncreaseMinuteRepeatIntervalCommand}"
+                        Content="{markups:LocalizationResourcesExtension UpSymbol}"
+                        FontSize="20"
+                        Style="{DynamicResource DialogButtonStyle}" />
+                    <TextBox
+                        Width="50"
+                        Height="50"
+                        VerticalAlignment="Stretch"
+                        VerticalContentAlignment="Center"
+                        Background="{DynamicResource Accent}"
+                        FontSize="20"
+                        Foreground="White"
+                        IsEnabled="False"
+                        Text="{Binding MinuteRepeatInterval}"
+                        TextAlignment="Center" />
+                    <Button
+                        Width="50"
+                        Height="50"
+                        Margin="0,-1,0,0"
+                        VerticalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Command="{Binding ReduceMinuteRepeatIntervalCommand}"
+                        Content="{markups:LocalizationResourcesExtension DownSymbol}"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Style="{DynamicResource DialogButtonStyle}" />
+                </UniformGrid>
+            </Viewbox>
+            <TextBlock
+                VerticalAlignment="Center"
+                FontSize="19"
+                Style="{StaticResource FixedTextStyle}"
+                Text="мин." />
+        </StackPanel>
+
+
+
+
+
+
+
+        <UniformGrid
+            Grid.Row="6"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom">
+            <Button
+                Margin="3"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Bottom"
+                Command="{Binding SubmitCommand}"
+                Content="{markups:LocalizationResourcesExtension OkButtonContent}"
+                Style="{DynamicResource DialogButtonStyle}" />
+            <Button
+                Margin="3"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Bottom"
+                Command="{Binding CancelCommand}"
+                Content="{markups:LocalizationResourcesExtension CancelButtonContent}"
+                Style="{DynamicResource DialogButtonStyle}" />
+        </UniformGrid>
+
+
+
+
+
+
+
+    </Grid>
+</views:InteractionViewBase>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <Fragment>
+    <DirectoryRef Id="INSTALLFOLDER" FileSource="C:\ULA 2k17\Presentation\ULA.Shell\bin\Release\">
+      <Component Id="ProductComponent" Guid="b11556a2-e066-4393-af5c-9c9210187e12">
+        <File Id='Shell' DiskId='1' Name='ULA.Shell.exe'/>
+        <File Id='FirstFloorModernUIdll' DiskId='1' Name='FirstFloor.ModernUI.dll'/>
+        <File Id='FluentValidationdll' DiskId='1' Name='FluentValidation.dll'/>
+        <!--<File Id='MicrosoftExpressionInteractionsdll' DiskId='1' Name='Microsoft.Expression.Interactions.dll'/>-->
+        <File Id='MicrosoftPracticesEnterpriseLibraryCommondll' DiskId='1' Name='Microsoft.Practices.EnterpriseLibrary.Common.dll'/>
+        <File Id='Prismdll' DiskId='1' Name='Prism.dll'/>
+
+        <File Id='PrismWpfdll' DiskId='1' Name='Prism.Wpf.dll'/>
+        <File Id='PrismUnityWpfdll' DiskId='1' Name='Prism.Unity.Wpf.dll'/>
+        <File Id='MicrosoftPracticesServiceLocationdll' DiskId='1' Name='Microsoft.Practices.ServiceLocation.dll'/>
+        <File Id='MicrosoftPracticesUnitydll' DiskId='1' Name='Microsoft.Practices.Unity.dll'/>
+        <!--<File Id='MicrosoftWindowsShelldll' DiskId='1' Name='Microsoft.Windows.Shell.dll'/>-->
+
+        <File Id='NLogconfig' DiskId='1' Name='NLog.config'/>
+        <File Id='NLogdll' DiskId='1' Name='NLog.dll'/>
+
+
+
+        <File Id='SystemWindowsInteractivityDLL' DiskId='1' Name='System.Windows.Interactivity.dll'/>
+        <File Id='ULAAddinsHostDLL' DiskId='1' Name='ULA.AddinsHost.dll'/>
+        <File Id='ULAApplicationConnectionServiceDLL' DiskId='1' Name='ULA.ApplicationConnectionService.dll'/>
+        <File Id='ULABusinessDLL' DiskId='1' Name='ULA.Business.dll'/>
+
+
+        <File Id='ULABusinessInfrastructureDLL' DiskId='1' Name='ULA.Business.Infrastructure.dll'/>
+        <File Id='ULACommonDLL' DiskId='1' Name='ULA.Common.dll'/>
+        <File Id='ULACompositionRootDLL' DiskId='1' Name='ULA.CompositionRoot.DLL'/>
+        
+        
+        
+        <File Id='ULA.DevicesPICON2BusinessDLL' DiskId='1' Name='ULA.Devices.PICON2.Business.dll'/>
+        <File Id='ULADevicesPICON2LocalizationDLL' DiskId='1' Name='ULA.Devices.PICON2.Localization.dll'/>
+        <File Id='ULADevicesPICON2PresentationDLL' DiskId='1' Name='ULA.Devices.PICON2.Presentation.dll'/>
+
+        <File Id='ULADevicesPICONGSBusinessDLL' DiskId='1' Name='ULA.Devices.PICONGS.Business.dll'/>
+        <File Id='ULADevicesPICONGSPresentationDLL' DiskId='1' Name='ULA.Devices.PICONGS.Presentation.dll'/>
+        <!--<File Id='ULA.Devices.PICONGS.Localization' DiskId='1' Name='ULA.Devices.PICONGS.Localization'/>-->
+
+        <File Id='ULADevicesRuno3BusinessDLL' DiskId='1' Name='ULA.Devices.Runo3.Business.dll'/>
+        <!--<File Id='ULADevicesRuno3LocalizationDLL' DiskId='1' Name='ULA.Devices.Runo3.Localization.dll'/>-->
+        <File Id='ULADevicesRuno3PresentationDLL' DiskId='1' Name='ULA.Devices.Runo3.Presentation.dll'/>
+
+        <File Id='ULADriversTcpFamilyDLL' DiskId='1' Name='ULA.Drivers.TcpFamily.dll'/>
+        <File Id='ULAInterceptorsDLL' DiskId='1' Name='ULA.Interceptors.dll'/>
+        <File Id='ULALocalizationDLL' DiskId='1' Name='ULA.Localization.dll'/>
+
+        <File Id='ULAPresentationDLL' DiskId='1' Name='ULA.Presentation.dll'/>
+        <File Id='ULAPresentationInfrastructureDLL' DiskId='1' Name='ULA.Presentation.Infrastructure.dll'/>
+        <File Id='ULAPresentationSharedResoursesDLL' DiskId='1' Name='ULA.Presentation.SharedResourses.dll'/>
+        <File Id='ULAShellexeconfig' DiskId='1' Name='ULA.Shell.exe.config'/>
+        <File Id='YPToolkitSystemdll' DiskId='1' Name='YP.Toolkit.System.dll'/>
+        <File Id='ULALogdll' DiskId='1' Name='ULA.Log.dll'/>
+        <File Id='NModbus4.dll' DiskId='1' Name='NModBus4.dll'/>
+
+        <File Id='ULADevicesPresentationdll' DiskId='1' Name='ULA.Devices.Presentation.dll'/>
+
+        <File Id='Microsoft.Practices.Unity.Configuration.dll' DiskId='1' Name='Microsoft.Practices.Unity.Configuration.dll'/>
+
+        <File Id='Microsoft.Practices.Unity.RegistrationByConvention.dll' DiskId='1' Name='Microsoft.Practices.Unity.RegistrationByConvention.dll'/>
+
+      </Component>
+    </DirectoryRef>
+
+
+    <!--<DirectoryRef Id="INSTALLFOLDER" FileSource="E:\ULA 2017\Presentation\ULA.Shell\bin\Release\Files\">
+      <Component Id="files" Guid="b11556a2-e066-4393-af5c-9c9210187e32">
+
+        <File Id='SystemIOCompressiondll' DiskId='1' Name='System.IO.Compression.dll'/>
+        <File Id='SystemIOdll' DiskId='1' Name='System.IO.dll'/>
+        <File Id='SystemRuntimeDLL' DiskId='1' Name='System.Runtime.dll'/>
+        <File Id='SystemThreadingTasksdll' DiskId='1' Name='System.Threading.Tasks.dll'/>
+      </Component>
+    </DirectoryRef>-->
+
+    <DirectoryRef Id="FilesFolder" FileSource="C:\ULA 2k17\Presentation\ULA.Shell\bin\Release\Files\">
+      <Component Id="files" Guid="b11556a2-e066-4393-af5c-9c9210187e32">
+        <File Id='ULAchm' DiskId='1' Name='SUNO.chm'/>
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="DataBasesFolder" FileSource="C:\ULA 2k17\Presentation\ULA.Shell\bin\Release\ApplicationData\">
+      <!--<Component Id="db0" Guid="b11556a2-e066-4393-af5c-9c9210187e3c">
+        <File Id='db0' DiskId='1' Name='DevicesDataBase_app0.xml'/>
+      </Component>
+      <Component Id="db1" Guid="b11556a2-e066-4393-af5c-9c9210187e3d">
+        <File Id='db1' DiskId='1' Name='DevicesDataBase_app1.xml'/>
+      </Component>-->
+      
+      
+    </DirectoryRef>
+
+
+    <DirectoryRef Id="ResourcesFolder" FileSource="C:\ULA 2k17\Presentation\ULA.Shell\bin\Release\Resources\">
+      <Component Id="help" Guid="b11556a2-e066-4393-af5c-9c9210187e42">
+        <File Id='AddressesPICON2devs' DiskId='1' Name='AddressesPICON2.devs'/>
+        <File Id='AddressesPICONGSdevs' DiskId='1' Name='AddressesPICONGS.devs'/>
+        <File Id='AddressesRUNOdevs' DiskId='1' Name='AddressesRUNO.devs'/>
+
+      </Component>
+
+    </DirectoryRef>
+
+  </Fragment>
+</Wix>

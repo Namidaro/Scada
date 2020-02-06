@@ -1,0 +1,105 @@
+﻿<UserControl x:Class="ULA.Devices.Presentation.View.ChannelView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:interceptors="clr-namespace:ULA.Presentation.Infrastructure.ViewModels;assembly=ULA.Presentation.Infrastructure"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:interceptors1="clr-namespace:ULA.Interceptors;assembly=ULA.Interceptors"
+             xmlns:converters="clr-namespace:ULA.Presentation.SharedResourses.Converters;assembly=ULA.Presentation.SharedResourses"
+             xmlns:converters1="clr-namespace:ULA.Devices.Presentation.Converters"
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <converters1:ObjectAsBoolToStateBrush x:Key="ObjectAsBoolToStateBrush"></converters1:ObjectAsBoolToStateBrush>
+        <converters:ObjectAsBoolToVisibilityRevertConverter x:Key="objectAsBoolToVisibilityRevertConverter"></converters:ObjectAsBoolToVisibilityRevertConverter>
+        <Style x:Key="CommandStateStyle" TargetType="Border">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding DeviceCommandStateViewModel.CommandType}" Value="{x:Static interceptors1:CommandTypesEnum.ON}">
+                    <Setter Property="BorderBrush" Value="Red" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding DeviceCommandStateViewModel.CommandType}" Value="{x:Static interceptors1:CommandTypesEnum.OFF}">
+                    <Setter Property="BorderBrush" Value="Green" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding DeviceCommandStateViewModel.CommandType}" Value="{x:Static interceptors1:CommandTypesEnum.Repair}">
+                    <Setter Property="BorderBrush" Value="Orange" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding DeviceCommandStateViewModel.CommandType}" Value="{x:Static interceptors1:CommandTypesEnum.NoRepair}">
+                    <Setter Property="BorderBrush" Value="Orange" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding DeviceCommandStateViewModel.CommandType}" Value="{x:Static interceptors1:CommandTypesEnum.AUTO}">
+                    <Setter Property="BorderBrush" Value="Indigo" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding DeviceCommandStateViewModel.CommandType}" Value="{x:Static interceptors1:CommandTypesEnum.MANUAL}">
+                    <Setter Property="BorderBrush" Value="Indigo" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding DeviceCommandStateViewModel.IsCommandSucceed}" Value="True">
+                    <Setter Property="BorderBrush" Value="Transparent" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding DeviceCommandStateViewModel.IsCommandSucceed}" Value="False">
+                    <Setter Property="BorderBrush" Value="Transparent" />
+                </DataTrigger>
+            </Style.Triggers>
+            <Setter Property="BorderThickness" Value="5" />
+        </Style>
+    </UserControl.Resources>
+
+
+    <Viewbox Stretch="Fill" ToolTip="{Binding StarterDescription}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <!--<TextBlock Name="DescriptionTextBlock"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Margin="5,0"
+                       Text="{Binding StarterId}"
+                       TextAlignment="Left" />-->
+            <Border Name="OuterBorder"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Width="100"
+                    Height="100" 
+                    Background="{Binding IsStarterOn, Converter={StaticResource ObjectAsBoolToStateBrush}}"
+                    Style="{DynamicResource CommandStateStyle}">
+                <Grid>
+                    <TextBlock Name="DescriptionTextBlock"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Margin="5,0"
+                       Text="{Binding StarterNumber}"
+                       TextAlignment="Left" />
+                    <Border Margin="15" Background="{Binding ManagementFuseState, Converter={StaticResource ObjectAsBoolToStateBrush}}">
+                    <TextBlock Name="InnerTextBlock"
+                               VerticalAlignment="Stretch"
+                               FontSize="45"
+                               Text="A"
+                               TextAlignment="Center"
+                               Visibility="{Binding IsInManualMode,
+                                                    Converter={StaticResource objectAsBoolToVisibilityRevertConverter}}" />
+                </Border>
+                </Grid>
+            </Border>
+            <Border Name="RepairBorder"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Width="25"
+                    Height="25"
+                    Margin="5,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Visibility="{Binding IsInRepairState,
+                                         Converter={StaticResource BoolVisibilityConverter}}">
+                <Border.Background>
+                    <ImageBrush ImageSource="pack://application:,,,/ULA.Presentation.SharedResourses;component/ImageResources/Repair.jpg" />
+                </Border.Background>
+            </Border>
+        </Grid>
+    </Viewbox>
+</UserControl>

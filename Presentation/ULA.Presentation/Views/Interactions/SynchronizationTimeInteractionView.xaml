@@ -1,0 +1,186 @@
+﻿<views:InteractionViewBase x:Class="ULA.Presentation.Views.Interactions.SynchronizationTimeInteractionView"
+                           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                           xmlns:markups="clr-namespace:ULA.Presentation.SharedResourses.Markups;assembly=ULA.Presentation.SharedResourses"
+                           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                           xmlns:views="clr-namespace:ULA.Presentation.Infrastructure.Views;assembly=ULA.Presentation.Infrastructure"
+                           Title="{markups:LocalizationResourcesExtension SynchronizationTimeTitle}"
+                           d:DesignHeight="300"
+                           d:DesignWidth="300"
+                           mc:Ignorable="d">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           HorizontalAlignment="Center"
+                           Style="{DynamicResource DialogFormHeadingStyle}"
+                           Text="{markups:LocalizationResourcesExtension LogDate}" />
+                <Calendar Grid.Row="1"
+                          Grid.Column="0"
+                          Margin="2, 2, 24, 2"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Stretch"
+                          DisplayDate="{Binding DateTime}"
+                          DisplayDateStart="2014/5/1"
+                          SelectedDate="{Binding DateTime}"
+                          SelectionMode="SingleDate" />
+                <TextBlock Grid.Row="0"
+                           Grid.Column="1"
+                           HorizontalAlignment="Center"
+                           Style="{DynamicResource DialogFormHeadingStyle}"
+                           Text="{markups:LocalizationResourcesExtension Time}" />
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <UniformGrid Grid.Column="0"
+                                 Margin="5"
+                                 VerticalAlignment="Stretch"
+                                 Rows="3">
+                        <Button Width="50"
+                                VerticalAlignment="Stretch"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                Command="{Binding IncreaseHourCommand}"
+                                Content="{markups:LocalizationResourcesExtension UpSymbol}"
+                                FontSize="20"
+                                Style="{DynamicResource DialogButtonStyle}" />
+                        <TextBox Width="50"
+                                 VerticalAlignment="Stretch"
+                                 VerticalContentAlignment="Center"
+                                 Background="{DynamicResource Accent}"
+                                 FontSize="20"
+                                 Foreground="White"
+                                 IsEnabled="False"
+                                 Text="{Binding Hour}"
+                                 TextAlignment="Center" />
+                        <Button Width="50"
+                                Margin="0,-1,0,0"
+                                VerticalAlignment="Stretch"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                Command="{Binding ReduceHourCommand}"
+                                Content="{markups:LocalizationResourcesExtension DownSymbol}"
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Style="{DynamicResource DialogButtonStyle}" />
+                    </UniformGrid>
+                    <TextBlock Grid.Column="1"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="20"
+                               Text=":" />
+                    <UniformGrid Grid.Column="2"
+                                 Margin="5"
+                                 VerticalAlignment="Stretch"
+                                 Rows="3">
+                        <Button Width="50"
+                                VerticalAlignment="Stretch"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                Command="{Binding IncreaseMinuteCommand}"
+                                Content="{markups:LocalizationResourcesExtension UpSymbol}"
+                                FontSize="20"
+                                Style="{DynamicResource DialogButtonStyle}" />
+                        <TextBox Width="50"
+                                 VerticalAlignment="Stretch"
+                                 VerticalContentAlignment="Center"
+                                 Background="{DynamicResource Accent}"
+                                 FontSize="20"
+                                 Foreground="White"
+                                 IsEnabled="False"
+                                 Text="{Binding Minute}"
+                                 TextAlignment="Center" />
+                        <Button Width="50"
+                                Margin="0,-1,0,0"
+                                VerticalAlignment="Stretch"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                Command="{Binding ReduceMinuteCommand}"
+                                Content="{markups:LocalizationResourcesExtension DownSymbol}"
+                                FontSize="20"
+                                Style="{DynamicResource DialogButtonStyle}" />
+                    </UniformGrid>
+                    <TextBlock Grid.Column="3"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="20"
+                               Text=":" />
+                    <UniformGrid Grid.Column="4"
+                                 Margin="5"
+                                 VerticalAlignment="Stretch"
+                                 Rows="3">
+                        <Button Width="50"
+                                VerticalAlignment="Stretch"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                Command="{Binding IncreaseSecondCommand}"
+                                Content="{markups:LocalizationResourcesExtension UpSymbol}"
+                                FontSize="20"
+                                Style="{DynamicResource DialogButtonStyle}" />
+                        <TextBox Width="50"
+                                 VerticalAlignment="Stretch"
+                                 VerticalContentAlignment="Center"
+                                 Background="{DynamicResource Accent}"
+                                 FontSize="20"
+                                 Foreground="White"
+                                 IsEnabled="False"
+                                 Text="{Binding Second}"
+                                 TextAlignment="Center" />
+                        <Button Width="50"
+                                Margin="0,-1,0,0"
+                                VerticalAlignment="Stretch"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                Command="{Binding ReduceSecondCommand}"
+                                Content="{markups:LocalizationResourcesExtension DownSymbol}"
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Style="{DynamicResource DialogButtonStyle}" />
+                    </UniformGrid>
+                </Grid>
+            </Grid>
+        </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0"
+                    Margin="3"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Command="{Binding SystemTimeCommand}"
+                    Content="Системное" />
+            <Button Grid.Column="1"
+                    Margin="3"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Command="{Binding SubmitCommand}"
+                    Content="Установить"
+                    Style="{DynamicResource DialogButtonStyle}" />
+            <Button Grid.Column="2"
+                    Margin="3"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Top"
+                    Command="{Binding CancelCommand}"
+                    Content="{markups:LocalizationResourcesExtension CancelButtonContent}"
+                    Style="{DynamicResource DialogButtonStyle}" />
+        </Grid>
+    </StackPanel>
+</views:InteractionViewBase>

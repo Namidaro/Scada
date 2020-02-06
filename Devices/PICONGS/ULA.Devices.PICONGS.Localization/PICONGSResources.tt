@@ -1,0 +1,100 @@
+﻿<#@ template language="C#" debug="false" hostspecific="true"#>
+<#@ assembly name="System.Windows.Forms" #>
+
+<#@ import namespace="System.Resources" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.IO" #>
+<#@ output extension=".cs"#>
+
+using System;
+
+
+<#
+var fileName = "Resources.resx";
+var className = Path.GetFileNameWithoutExtension(Host.TemplateFile);
+var embeddedResourceFulePath = "ULA.Devices.PICONGS.Localization.Properties.Resources";
+var filePath = Host.ResolvePath("Properties\\" + fileName);
+
+using (ResXResourceSet resxSet = new ResXResourceSet(filePath))
+{
+#>
+namespace ULA.Devices.PICONGS.Localization
+{
+	/// <summary>
+    ///   Represents an application resources accessor functionality
+    /// </summary>
+    public class <#= className #>
+    {
+		private static readonly Lazy<<#= className #>> _factory =
+            new Lazy<<#= className #>>(() => new <#= className #>());
+
+        /// <summary>
+        ///     Gets current instance of <see cref="<#= className #>" />
+        /// </summary>
+        public static <#= className #> Instance
+        {
+            get { return <#= className #>._factory.Value; }
+        }
+
+
+		private static System.Resources.ResourceManager _resourceMan;
+
+		/// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+		internal static System.Resources.ResourceManager ResourceManager 
+		{
+            get 
+			{
+                if (object.ReferenceEquals(_resourceMan, null)) 
+				{
+                    var temp = new System.Resources.ResourceManager("<#= embeddedResourceFulePath #>", typeof(<#= className #>).Assembly);
+                    _resourceMan = temp;
+                }
+                return _resourceMan;
+            }
+        }
+			
+
+	    /// <summary>
+        /// Gets a resource by its name
+        /// </summary>
+        /// <param name="resource">The name of the resource to obtain</param>
+        /// <returns>An instance of the obtained resource</returns>
+		public string this[string resource]
+		{
+			get
+			{
+				return string.IsNullOrWhiteSpace(resource)
+                          ? string.Empty
+                          : ResourceManager.GetString(resource, null);
+			}
+		}
+
+
+
+<#
+    foreach (DictionaryEntry item in resxSet)
+    {
+#>
+		/// <summary>
+        ///   Looks up a localized string similar to <#=item.Value.ToString()#>
+        /// </summary>
+       [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly")]
+	    public string <#=item.Key.ToString()#> 
+		{
+			get 
+			{
+				return ResourceManager.GetString("<#=item.Key.ToString()#>", null);
+			}
+		}
+<#
+    }
+#>
+
+       
+    }
+}
+<#
+}
+#>

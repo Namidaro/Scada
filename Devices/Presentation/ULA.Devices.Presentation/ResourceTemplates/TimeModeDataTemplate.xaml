@@ -1,0 +1,96 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:enums1="clr-namespace:ULA.AddinsHost.Business.Device.Enums;assembly=ULA.AddinsHost"
+                    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                    xmlns:viewModels="clr-namespace:ULA.Presentation.Infrastructure.ViewModels;assembly=ULA.Presentation.Infrastructure"
+                    xmlns:converters1="clr-namespace:ULA.Devices.Presentation.Converters"
+                    xmlns:presentation="clr-namespace:ULA.Devices.Presentation"
+                    xmlns:interceptors="clr-namespace:ULA.Interceptors;assembly=ULA.Interceptors"
+                    xmlns:runtime="clr-namespace:ULA.Devices.Presentation.Runtime"
+                    xmlns:converters="clr-namespace:ULA.Presentation.SharedResourses.Converters;assembly=ULA.Presentation.SharedResourses"
+                    xmlns:behaviors="clr-namespace:ULA.Presentation.Behaviors;assembly=ULA.Presentation">
+
+    <DataTemplate x:Key="TimeModeDataTemplate">
+        <DataTemplate.Resources>
+            <converters:ObjAsIntToString x:Key="ObjAsIntToString"/>
+            <converters:ObjAsInt16ToString x:Key="ObjAsInt16ToString"/>
+        </DataTemplate.Resources>
+
+        <Viewbox Width="Auto" Height="Auto" Stretch="Uniform" >
+            <Viewbox  Stretch="Uniform">
+                <Grid Width="150" Height="110"  Background="#BFC0C0C0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="5*"/>
+                    </Grid.RowDefinitions>
+                    <Border>
+                        <TextBlock 
+                            Grid.Row="0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="15"
+                            Text="{Binding DeviceName}"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap"/>
+                    </Border>
+                    <StackPanel Grid.Row="1">
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                            <TextBlock
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Text="{Binding AnalogDataViewModel.DateTimeFromDevice.Hour, Converter={StaticResource ObjAsIntToString}}"
+                                TextAlignment="Center" />
+                            <TextBlock
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Text=" : "
+                                TextAlignment="Center" />
+                            <TextBlock
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Text="{Binding AnalogDataViewModel.DateTimeFromDevice.Minute, Converter={StaticResource ObjAsIntToString}}"
+                                TextAlignment="Center" />
+                            <TextBlock
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Text=" : "
+                                TextAlignment="Center" />
+                            <TextBlock
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Text="{Binding AnalogDataViewModel.DateTimeFromDevice.Second, Converter={StaticResource ObjAsIntToString}}"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                            <TextBlock
+                                FontSize="18"
+                                FontWeight="DemiBold"
+                                Text="{Binding AnalogDataViewModel.DateTimeFromDevice.Day, Converter={StaticResource ObjAsIntToString}}"
+                                TextAlignment="Center" />
+                            <TextBlock
+                                FontSize="18"
+                                FontWeight="DemiBold"
+                                Text="."
+                                TextAlignment="Center" />
+                            <TextBlock
+                                FontSize="18"
+                                FontWeight="DemiBold"
+                                Text="{Binding AnalogDataViewModel.DateTimeFromDevice.Month, Converter={StaticResource ObjAsIntToString}}"
+                                TextAlignment="Center" />
+                            <TextBlock
+                                FontSize="18"
+                                FontWeight="DemiBold"
+                                Text="."
+                                TextAlignment="Center" />
+                            <TextBlock
+                                FontSize="18"
+                                FontWeight="DemiBold"
+                                Text="{Binding AnalogDataViewModel.DateTimeFromDevice.Year, Converter={StaticResource ObjAsInt16ToString}}"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Viewbox>
+        </Viewbox>
+    </DataTemplate>
+</ResourceDictionary>

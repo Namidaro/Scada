@@ -1,0 +1,59 @@
+﻿<views:InteractionViewBase x:Class="ULA.Presentation.Views.Interactions.ErrorMessageBoxInteractionView"
+                           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                           xmlns:views="clr-namespace:ULA.Presentation.Infrastructure.Views;assembly=ULA.Presentation.Infrastructure"
+                           xmlns:enum="clr-namespace:ULA.Presentation.Infrastructure.ViewModels;assembly=ULA.Presentation.Infrastructure"
+                           xmlns:markups="clr-namespace:ULA.Presentation.SharedResourses.Markups;assembly=ULA.Presentation.SharedResourses"
+                           mc:Ignorable="d" Title="{Binding Title}"
+                           d:DesignHeight="300" d:DesignWidth="300"
+                           Width="Auto" MaxWidth="500" MinWidth="100"
+                           Height="Auto" MaxHeight="500" MinHeight="100">
+    <views:InteractionViewBase.Resources>
+        <UniformGrid x:Key="OkControlGrid" Rows="1">
+            <Button IsDefault="True" Content="{markups:LocalizationResourcesExtension OkButtonContent}"
+                    Style="{DynamicResource DialogButtonStyle}" Margin="8,0" Command="{Binding SubmitCommand}" />
+        </UniformGrid>
+        <UniformGrid x:Key="OkCancelGrid" Rows="1">
+            <Button Content="{markups:LocalizationResourcesExtension OkButtonContent}"
+                    Style="{DynamicResource DialogButtonStyle}" Margin="8,0" Command="{Binding SubmitCommand}" />
+            <Button Content="{markups:LocalizationResourcesExtension CancelButtonContent}"
+                    Style="{DynamicResource DialogButtonStyle}" Margin="8,0" Command="{Binding CancelCommand}" />
+        </UniformGrid>
+        <UniformGrid x:Key="YesNoGrid" Rows="1">
+            <Button Content="{markups:LocalizationResourcesExtension YesButtonContent}"
+                    Style="{DynamicResource DialogButtonStyle}" Margin="8,0" Command="{Binding SubmitCommand}" />
+            <Button Content="{markups:LocalizationResourcesExtension NoButtonContent}"
+                    Style="{DynamicResource DialogButtonStyle}" Margin="8,0" Command="{Binding CancelCommand}" />
+        </UniformGrid>
+    </views:InteractionViewBase.Resources>
+    <Grid VerticalAlignment="Bottom">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="25" />
+        </Grid.RowDefinitions>
+        <TextBlock TextWrapping="Wrap" MinWidth="200" MaxWidth="450" Text="{Binding Message}" Style="{DynamicResource EmphasisStyle}"
+                   VerticalAlignment="Center" Margin="16, 0, 16, 36" Grid.Row="0" />
+        <ContentControl HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1">
+            <ContentControl.Style>
+                <Style TargetType="ContentControl">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=ButtonType}"
+                                     Value="{x:Static enum:MessageBoxButtonType.OK}">
+                            <Setter Property="Content" Value="{DynamicResource OkControlGrid}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=ButtonType}"
+                                     Value="{x:Static enum:MessageBoxButtonType.OK_CANCEL}">
+                            <Setter Property="Content" Value="{DynamicResource OkCancelGrid}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=ButtonType}"
+                                     Value="{x:Static enum:MessageBoxButtonType.YES_NO}">
+                            <Setter Property="Content" Value="{DynamicResource YesNoGrid}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
+    </Grid>
+</views:InteractionViewBase>

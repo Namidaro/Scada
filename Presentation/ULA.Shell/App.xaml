@@ -1,0 +1,15 @@
+﻿<Application x:Class="ULA.Shell.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" DispatcherUnhandledException="OnDispatcherUnhandledException">
+    <Application.Resources>
+        <ResourceDictionary>
+            
+            <Style TargetType="{x:Type Rectangle}"/>
+            
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ULA.Presentation.SharedResourses;component/UI/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+          
+    </Application.Resources>
+</Application>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AddressesContainer>
+ <!--Неисправности-->
+<FailsContainer>
+
+<Address Modul="1" Diskret="0">6,0</Address>
+ <Address Modul="1" Diskret="1">6,1</Address>
+ <Address Modul="1" Diskret="2">6,2</Address>
+ <Address Modul="1" Diskret="3">6,3</Address>
+ <Address Modul="1" Diskret="4">6,4</Address>
+ <Address Modul="1" Diskret="5">6,5</Address>
+  <Address Modul="1" Diskret="6">6,6</Address>
+ <Address Modul="1" Diskret="7">6,7</Address>
+ <Address Modul="1" Diskret="8">6,8</Address>
+ <Address Modul="1" Diskret="9">6,9</Address>
+ <Address Modul="1" Diskret="10">6,10</Address> 
+ 
+ 
+ 
+ 
+ </FailsContainer>
+ 
+ 
+ 
+ 
+ <!--Состояния-->
+ <StatesContainer> 
+ 
+<Address Modul="1" Diskret="0">7,0</Address>
+ <Address Modul="1" Diskret="1">7,1</Address>
+ <Address Modul="1" Diskret="2">7,2</Address>
+ <Address Modul="1" Diskret="3">7,3</Address>
+ <Address Modul="1" Diskret="4">7,4</Address>
+ <Address Modul="1" Diskret="5">7,5</Address>
+ 
+ <Address Modul="1" Diskret="6">7,6</Address>
+ <Address Modul="1" Diskret="7">7,7</Address>
+ <Address Modul="1" Diskret="8">7,8</Address>
+ <Address Modul="1" Diskret="9">7,9</Address>
+ <Address Modul="1" Diskret="10">7,10</Address> 
+ 
+ </StatesContainer>
+
+
+  <!--дата и время-->
+  <DateTimeContainer>
+
+    <Address>1008</Address>
+
+  </DateTimeContainer>
+ 
+</AddressesContainer>

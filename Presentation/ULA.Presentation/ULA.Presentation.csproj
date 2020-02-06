@@ -1,0 +1,476 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AE8BC796-4315-4CEF-8C49-47D2FEF8E924}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ULA.Presentation</RootNamespace>
+    <AssemblyName>ULA.Presentation</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\ULA.Presentation.XML</DocumentationFile>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>..\..\RuleSets\BasicRuleSets.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FirstFloor.ModernUI, Version=1.0.9.0, Culture=neutral, PublicKeyToken=bc9b0c37bf06c6a9, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ModernUI.WPF.1.0.9\lib\net45\FirstFloor.ModernUI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation, Version=5.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FluentValidation.5.3.0.0\lib\Net40\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.Interception.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Interception.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.Interception.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NLog.4.4.0\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prism, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.Core.6.3.0\lib\net45\Prism.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prism.Unity.Wpf, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.Unity.6.3.0\lib\net45\Prism.Unity.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prism.Wpf, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.Wpf.6.3.0\lib\net45\Prism.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.Wpf.6.3.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\SharedVersion\GlobalAssemblyVersion.cs">
+      <Link>Properties\GlobalAssemblyVersion.cs</Link>
+    </Compile>
+    <Compile Include="Behaviors\BindingHelper.cs" />
+    <Compile Include="Behaviors\Interactions\ApplicationInteractionBehavior.cs" />
+    <Compile Include="Behaviors\Interactions\InteractionContext.cs" />
+    <Compile Include="Behaviors\Interactions\InteractionRequestEvent.cs" />
+    <Compile Include="Behaviors\Interactions\InteractionRequestEventArgs.cs" />
+    <Compile Include="Behaviors\Interactions\InteractionInterceptorsInvoker.cs" />
+    <Compile Include="Behaviors\ImageBehavior.cs" />
+    <Compile Include="Behaviors\PasswordBehavior.cs" />
+    <Compile Include="Behaviors\RegisterApplicationShortcutsBehavior.cs" />
+    <Compile Include="Behaviors\WidgetRightBorderBehavior.cs" />
+    <Compile Include="Converters\ImageEditingModeToVisibilityConverter.cs" />
+    <Compile Include="Converters\ImageVisibilityConverter.cs" />
+    <Compile Include="Converters\DeviceTypeEnumToBoolConverter.cs" />
+    <Compile Include="Converters\FidersMultibindingConverters.cs" />
+    <Compile Include="Converters\GetColumnFromDeviceNumber.cs" />
+    <Compile Include="Converters\GetRowFromDeviceNumber.cs" />
+    <Compile Include="Converters\InversionConverter.cs" />
+    <Compile Include="Converters\SelectedAnalogMeterToVisibilityConverter.cs" />
+    <Compile Include="Factories\CascadeViewModelFactory.cs" />
+    <Compile Include="Factories\IndicatorViewModelFactory.cs" />
+    <Compile Include="Factories\LogMessageViewModelFactory.cs" />
+    <Compile Include="Factories\SignalViewModelFactory.cs" />
+    <Compile Include="Factories\FiderViewModelFactory.cs" />
+    <Compile Include="Loggers\CityWideCommandsLogger.cs" />
+    <Compile Include="Module\PresentationModule.cs" />
+    <Compile Include="Services\Interactions\CommandOnTemplatesInteractionProvider.cs" />
+    <Compile Include="Services\Interactions\ExtraSettingsInteractionProvider.cs" />
+    <Compile Include="Services\SoundNotificationsService.cs" />
+    <Compile Include="ViewModels\AnalogDataTableViewModel.cs" />
+    <Compile Include="ViewModels\CustomItems\FiderDefinitionsViewModel.cs" />
+    <Compile Include="DTOs\DeviceModelExtensions.cs" />
+    <Compile Include="DTOs\LogInformation.cs" />
+    <Compile Include="Markups\GridExtension.cs" />
+    <Compile Include="Markups\ViewResolverExtension.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\InteractionService.cs" />
+    <Compile Include="Services\Interactions\AboutInteractionProvider.cs" />
+    <Compile Include="Services\Interactions\ApplicationInteractionProviders.cs" />
+    <Compile Include="Services\Interactions\BusyInteractionProvider.cs" />
+    <Compile Include="Services\Interactions\CitywideCommandsInteractionProvider.cs" />
+    <Compile Include="Services\Interactions\CreateNewDeviceProvider.cs" />
+    <Compile Include="Services\Interactions\ErrorMessageBoxInteractionProvider.cs" />
+    <Compile Include="Services\Interactions\InformationMessageBoxInteractionProvider.cs" />
+    <Compile Include="Services\Interactions\InteractionProvidersRegistry.cs" />
+    <Compile Include="Services\Interactions\InteractionToken.cs" />
+    <Compile Include="Services\Interactions\LogInteractionProvider.cs" />
+    <Compile Include="Services\Interactions\PasswordInteractionProvider.cs" />
+    <Compile Include="Services\Interactions\QuestionMessageBoxInteractionProvider.cs" />
+    <Compile Include="Services\Interactions\SynchronizationTimeInteractionProvider.cs" />
+    <Compile Include="Services\Interactions\UpdateTimeoutInteractionProvider.cs" />
+    <Compile Include="Services\Interactions\WarningMessageBoxInteractionProvider.cs" />
+    <Compile Include="TemplateSelectors\InterfaceDataTemplateSelector.cs" />
+    <Compile Include="ViewModels\ApplicationConfigurationModeViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationFailureModeViewModel.cs" />
+    <Compile Include="ViewModels\ApplicationModeViewModelFactory.cs" />
+    <Compile Include="ViewModels\ApplicationRuntimeModeViewModel.cs" />
+    <Compile Include="ViewModels\CustomItems\CascadeDefinitionsViewModel.cs" />
+    <Compile Include="ViewModels\CustomItems\IndicatorDefinitionsViewModel.cs" />
+    <Compile Include="ViewModels\CustomItems\SignalDefinitionsViewModel.cs" />
+    <Compile Include="ViewModels\Helpers\LogLoadingHelper.cs" />
+    <Compile Include="ViewModels\Interactions\AboutInteractionViewModel.cs" />
+    <Compile Include="ViewModels\Interactions\BusyInteractionViewModel.cs" />
+    <Compile Include="ViewModels\Interactions\CitywideCommandsInteractionViewModel.cs" />
+    <Compile Include="ViewModels\Interactions\CommandOnTemplateInteractionViewModel.cs" />
+    <Compile Include="ViewModels\Interactions\Entities\FiderOrStarterDescriptionViewModel.cs" />
+    <Compile Include="ViewModels\Interactions\ErrorMessageBoxInteractionViewModel.cs" />
+    <Compile Include="ViewModels\Interactions\ExtraSettingsViewModel.cs" />
+    <Compile Include="ViewModels\Interactions\InformationMessageBoxInteractionViewModel.cs" />
+    <Compile Include="ViewModels\Interactions\LogInteractionViewModel.cs" />
+    <Compile Include="ViewModels\Interactions\ModifyDeviceInteractionViewModel.cs" />
+    <Compile Include="ViewModels\Interactions\InteractionDialogViewModel.cs" />
+    <Compile Include="ViewModels\Interactions\PasswordInteractionViewModel.cs" />
+    <Compile Include="ViewModels\Interactions\QuestionMessageBoxInteractionViewModel.cs" />
+    <Compile Include="ViewModels\Interactions\SynchronizationTimeInteractionViewModel.cs" />
+    <Compile Include="ViewModels\Interactions\UpdateTimeoutInteractionViewModel.cs" />
+    <Compile Include="ViewModels\Interactions\ValidatableInteractionDialogViewModel.cs" />
+    <Compile Include="ViewModels\Interactions\Validators\DeviceDataModelValidator.cs" />
+    <Compile Include="ViewModels\Interactions\WarningMessageBoxInteractionViewModel.cs" />
+    <Compile Include="ViewModels\LightingSheduleViewModel.cs" />
+    <Compile Include="ViewModels\Log\ApplicationLogViewModel.cs" />
+    <Compile Include="ViewModels\Log\LogMessageViewModel.cs" />
+    <Compile Include="ViewModels\RootViewModel.cs" />
+    <Compile Include="ViewModels\UserControl\DaySheduleViewModel.cs" />
+    <Compile Include="Views\ConfigurationModeView.xaml.cs">
+      <DependentUpon>ConfigurationModeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FailureModeView.xaml.cs">
+      <DependentUpon>FailureModeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Image\MoveThumb.cs" />
+    <Compile Include="Views\Image\ResizeThumb.cs" />
+    <Compile Include="Views\Interactions\AboutInteractionView.xaml.cs">
+      <DependentUpon>AboutInteractionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Interactions\BusyInteractionView.xaml.cs">
+      <DependentUpon>BusyInteractionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Interactions\CitywideCommandsInteractionView.xaml.cs">
+      <DependentUpon>CitywideCommandsInteractionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Interactions\CommandOnTemplateInteractionView.xaml.cs">
+      <DependentUpon>CommandOnTemplateInteractionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Interactions\EditTemplatesView\EditTemplateView.xaml.cs">
+      <DependentUpon>EditTemplateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Interactions\ErrorMessageBoxInteractionView.xaml.cs">
+      <DependentUpon>ErrorMessageBoxInteractionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Interactions\ExtraSettingsView.xaml.cs">
+      <DependentUpon>ExtraSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Interactions\InformationMessageBoxInteractionView.xaml.cs">
+      <DependentUpon>InformationMessageBoxInteractionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Interactions\LogInteractionView.xaml.cs">
+      <DependentUpon>LogInteractionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Interactions\ModifyDeviceInteractionView.xaml.cs">
+      <DependentUpon>ModifyDeviceInteractionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Interactions\PasswordInteractionView.xaml.cs">
+      <DependentUpon>PasswordInteractionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Interactions\QuestionMessageBoxInteractionView.xaml.cs">
+      <DependentUpon>QuestionMessageBoxInteractionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Interactions\SynchronizationTimeInteractionView.xaml.cs">
+      <DependentUpon>SynchronizationTimeInteractionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Interactions\UpdateTimeoutInteractionView.xaml.cs">
+      <DependentUpon>UpdateTimeoutInteractionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Interactions\WarningMessageBoxInteractionView.xaml.cs">
+      <DependentUpon>WarningMessageBoxInteractionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LightingSheduleView.xaml.cs">
+      <DependentUpon>LightingSheduleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListWidgetModeConfigurationView.xaml.cs">
+      <DependentUpon>ListWidgetModeConfigurationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListWidgetModeRuntimeView.xaml.cs">
+      <DependentUpon>ListWidgetModeRuntimeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Log\ApplicationLogView.xaml.cs">
+      <DependentUpon>ApplicationLogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RootView.xaml.cs">
+      <DependentUpon>RootView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RuntimeModeView.xaml.cs">
+      <DependentUpon>RuntimeModeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControl\ConnectionErrorsView.xaml.cs">
+      <DependentUpon>ConnectionErrorsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControl\DaySheduleView.xaml.cs">
+      <DependentUpon>DaySheduleView.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <Resource Include="Files\---3.bmp" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Files\ULA.chm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ApplicationConnectionService\ULA.ApplicationConnectionService.csproj">
+      <Project>{C6A93A8F-4240-4060-B708-92A66077EABC}</Project>
+      <Name>ULA.ApplicationConnectionService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Business\ULA.Business.Infrastructure\ULA.Business.Infrastructure.csproj">
+      <Project>{edfe9736-6d0d-458f-84e7-56bc1a78fd6e}</Project>
+      <Name>ULA.Business.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Business\ULA.Business\ULA.Business.csproj">
+      <Project>{ffd15e66-2ddb-4c5f-aee7-d9584a5c9812}</Project>
+      <Name>ULA.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Interceptors\ULA.AddinsHost\ULA.AddinsHost.csproj">
+      <Project>{7869e618-6828-4ffa-83b1-f3318e62a74c}</Project>
+      <Name>ULA.AddinsHost</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Interceptors\ULA.Common\ULA.Common.csproj">
+      <Project>{c5df1364-61c7-43a9-a8bc-38a40427959d}</Project>
+      <Name>ULA.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Interceptors\ULA.Interceptors\ULA.Interceptors.csproj">
+      <Project>{c0904323-0610-4db3-9251-46091b9d3a1a}</Project>
+      <Name>ULA.Interceptors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Interceptors\ULA.Localization\ULA.Localization.csproj">
+      <Project>{5f153a4d-b039-42a8-99d7-cd5c4997f77b}</Project>
+      <Name>ULA.Localization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Protocols\ULA.Protocols.System\ULA.Protocols.System.csproj">
+      <Project>{28aed74e-a17a-4a54-aa11-16160ae797b3}</Project>
+      <Name>ULA.Protocols.System</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ULA.Log\ULA.Log.csproj">
+      <Project>{221CF20F-6617-4C04-A7B2-6C9AECE104F5}</Project>
+      <Name>ULA.Log</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ULA.Presentation.Infrastructure\ULA.Presentation.Infrastructure.csproj">
+      <Project>{c19d4d7c-ed69-4b17-afaa-cb0d8025393f}</Project>
+      <Name>ULA.Presentation.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ULA.Presentation.SharedResourses\ULA.Presentation.SharedResourses.csproj">
+      <Project>{8e81341f-61f1-47bf-8929-b9a6fff148fb}</Project>
+      <Name>ULA.Presentation.SharedResourses</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\ConfigurationModeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FailureModeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Interactions\AboutInteractionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Interactions\BusyInteractionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Interactions\CitywideCommandsInteractionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Interactions\CommandOnTemplateInteractionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Interactions\EditTemplatesView\EditTemplateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Interactions\ErrorMessageBoxInteractionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Interactions\ExtraSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Interactions\InformationMessageBoxInteractionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Interactions\LogInteractionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Interactions\ModifyDeviceInteractionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Interactions\PasswordInteractionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Interactions\QuestionMessageBoxInteractionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Interactions\SynchronizationTimeInteractionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Interactions\UpdateTimeoutInteractionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Interactions\WarningMessageBoxInteractionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LightingSheduleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListWidgetModeConfigurationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListWidgetModeRuntimeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Log\ApplicationLogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RootView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RuntimeModeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControl\ConnectionErrorsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControl\DaySheduleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Templates\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

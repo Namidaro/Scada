@@ -1,0 +1,43 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- default accent colors and brushes -->
+    <Color x:Key="AccentColor">#1ba1e2</Color>
+    <Color x:Key="GreenAccentColor">LimeGreen</Color>
+    <SolidColorBrush x:Key="Accent" Color="{DynamicResource AccentColor}" />
+    <SolidColorBrush x:Key="GreenAccent" Color="{DynamicResource GreenAccentColor}" />
+    <SolidColorBrush x:Key="RadioButtonBorderColor" Color="LightGray" />
+
+    <Color x:Key="AccentOnOverColor">#1ba1e2</Color>
+    <SolidColorBrush x:Key="AccentOnOver" Color="{DynamicResource AccentOnOverColor}" />
+    <SolidColorBrush x:Key="WindowBorder" Color="{DynamicResource AccentColor}" Opacity=".5" />
+    <SolidColorBrush x:Key="WindowBorderActive" Color="{DynamicResource AccentColor}" />
+    <Color x:Key="ErrorColor">#FFdc000c</Color>
+    <SolidColorBrush x:Key="ErrorBackground" Color="{DynamicResource ErrorColor}"/>
+    <Color x:Key="ErrorForegroundColor">#ffffff</Color>
+    <SolidColorBrush x:Key="ErrorForeground" Color="{DynamicResource ErrorForegroundColor}"/>
+
+
+    <SolidColorBrush x:Key="MenuItemText" Color="#66000000" />
+    <SolidColorBrush x:Key="MenuItemTextHover" Color="#bb000000" />
+    <SolidColorBrush x:Key="MenuItemBackgroundHover" Color="#ffffff" />
+    <SolidColorBrush x:Key="MenuItemTextSelected" Color="#ffffff" />
+
+    <Color x:Key="BackgroundColor">#f5f5f5</Color>
+    <SolidColorBrush x:Key="WindowHeaderGradient" Color="{DynamicResource BackgroundColor}"/>
+	<SolidColorBrush x:Key="MainBackground" Color="{DynamicResource BackgroundColor}"/>
+   
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{DynamicResource AccentOnOverColor}" />
+    
+    <Color x:Key="ModalViewContainerBackgroundColor">#22404040</Color>
+    <SolidColorBrush x:Key="ModalViewContainerBackgroundBrush" Color="{DynamicResource ModalViewContainerBackgroundColor}" />
+    
+    
+    
+    <!-- Icons -->
+    <Color x:Key="IconColor">#aaaaaa</Color>
+    <SolidColorBrush x:Key="IconBrush" Color="{DynamicResource IconColor}"/>
+    <Color x:Key="IconHoverColor">#FF000000</Color>
+    <SolidColorBrush x:Key="IconHoverBrush" Color="{DynamicResource IconHoverColor}"/>
+    
+    
+</ResourceDictionary>

@@ -1,0 +1,353 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:enums1="clr-namespace:ULA.AddinsHost.Business.Device.Enums;assembly=ULA.AddinsHost"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:viewModels="clr-namespace:ULA.Presentation.Infrastructure.ViewModels;assembly=ULA.Presentation.Infrastructure"
+    xmlns:converters1="clr-namespace:ULA.Devices.Presentation.Converters"
+    xmlns:presentation="clr-namespace:ULA.Devices.Presentation"
+    xmlns:interceptors="clr-namespace:ULA.Interceptors;assembly=ULA.Interceptors"
+    xmlns:runtime="clr-namespace:ULA.Devices.Presentation.Runtime"
+    xmlns:converters="clr-namespace:ULA.Presentation.SharedResourses.Converters;assembly=ULA.Presentation.SharedResourses"
+    xmlns:behaviors="clr-namespace:ULA.Presentation.Behaviors;assembly=ULA.Presentation">
+    <DataTemplate x:Key="NoTimeModeDataTemplate">
+
+        <DataTemplate.Resources>
+            <converters1:StarterStatetoBrushConverter x:Key="StarterStatetoBrushConverter" />
+            <converters1:EnumStatesToBrushConverter x:Key="EnumStatesToBrushConverter" />
+            <converters1:ObjectAsBoolToStateColor x:Key="ObjectAsBoolToStateColor" />
+            <converters1:ObjectAsBoolToStateBrush x:Key="ObjectAsBoolToStateBrush" />
+            <converters1:EnumStatesToCommandTypeBrushConverter x:Key="EnumStatesToCommandTypeBrushConverter"/>
+            <converters1:ObjAsBoolToAutoModeVisibilityConverter x:Key="ObjAsBoolToAutoModeVisibilityConverter" />
+            <converters:ObjectAsBoolToVisibilityConverter x:Key="ObjectAsBoolToVisibilityConverter"/>
+            <converters:ObjectAsBoolToVisibilityRevertConverter x:Key="ObjectAsBoolToVisibilityRevertConverter"/>
+            <converters1:WidgetStateToVisibilityConverter x:Key="WidgetStateToVisibilityConverter"/>
+            <converters:IsNullToVisibilityConverterRevert x:Key="IsNullToVisibilityConverterRevert"/>
+            <converters:IsNullToVisibilityConverter x:Key="IsNullToVisibilityConverter"/>
+            <Style x:Key="CommandStateStyle" TargetType="Border">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding DeviceCommandStateViewModel.CommandType}" Value="{x:Static interceptors:CommandTypesEnum.ON}">
+                        <Setter Property="BorderBrush" Value="Red" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding DeviceCommandStateViewModel.CommandType}" Value="{x:Static interceptors:CommandTypesEnum.OFF}">
+                        <Setter Property="BorderBrush" Value="Green" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding DeviceCommandStateViewModel.CommandType}" Value="{x:Static interceptors:CommandTypesEnum.Repair}">
+                        <Setter Property="BorderBrush" Value="Orange" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding DeviceCommandStateViewModel.CommandType}" Value="{x:Static interceptors:CommandTypesEnum.NoRepair}">
+                        <Setter Property="BorderBrush" Value="Orange" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding DeviceCommandStateViewModel.CommandType}" Value="{x:Static interceptors:CommandTypesEnum.AUTO}">
+                        <Setter Property="BorderBrush" Value="Indigo" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding DeviceCommandStateViewModel.CommandType}" Value="{x:Static interceptors:CommandTypesEnum.MANUAL}">
+                        <Setter Property="BorderBrush" Value="Indigo" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding DeviceCommandStateViewModel.IsCommandSucceed}" Value="True">
+                        <Setter Property="BorderBrush" Value="Transparent" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding DeviceCommandStateViewModel.IsCommandSucceed}" Value="False">
+                        <Setter Property="BorderBrush" Value="Transparent" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding StateWidget}" Value="{x:Static enums1:WidgetState.NoConnection}">
+                        <Setter  Property="Background" Value="#AFC0C0C0" />
+                    </DataTrigger>
+                </Style.Triggers>
+                <Setter Property="BorderThickness" Value="5" />
+            </Style>
+            <!-- стиль для индикатора выполнения команды на 3-м пускателе -->
+            <!-- я полдня совокуплялся с этим индикатором, чтобы он гасился когда надо, а он не хотел-->
+            <!-- выход нашел только такой-->
+            <Style x:Key="IsCommandSendingToVisibilityStyle" TargetType="Border">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding DeviceCommandStateViewModel.IsCommandSending}" Value="True">
+                        <Setter Property="Visibility" Value="Visible"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding DeviceCommandStateViewModel.IsCommandSucceed}" Value="True">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </DataTemplate.Resources>
+
+        <Viewbox
+        Width="Auto"
+        Height="Auto"
+        Stretch="Uniform"
+        ToolTip="{Binding DeviceDescription}">
+            <Grid  Width="150"
+               Height="110">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border
+                Background="#BFC0C0C0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="4*" />
+                            <ColumnDefinition Width="4*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*" />
+                            <RowDefinition Height="4*" />
+                            <RowDefinition Height="1*" />
+                        </Grid.RowDefinitions>
+                        <Border
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                    >
+                            <!--  При потере связи фон названия красный, иначе серый  -->
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=StateWidget}" Value="{x:Static enums1:WidgetState.Norm}">
+                                            <Setter Property="Background" Value="Transparent" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Path=StateWidget}" Value="{x:Static enums1:WidgetState.NoConnection}">
+                                            <Setter Property="Background" Value="#4F891313" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Path=StateWidget}" Value="{x:Static enums1:WidgetState.Repair}">
+                                            <Setter Property="Background" Value="#9FC5C5C5" />
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Path=StateWidget}" Value="{x:Static enums1:WidgetState.Crash}">
+                                            <Setter Property="Background" Value="#9FC5C5C5" />
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+                            <Viewbox Stretch="Uniform">
+                                <Grid>
+
+                                    <Grid.ColumnDefinitions>
+                                        <!--<ColumnDefinition Width="1*"></ColumnDefinition>-->
+                                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                                        <ColumnDefinition Width="9*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!--<Border Grid.Column="0"
+                                                CornerRadius="4" 
+                                                Margin="5"
+                                                Width="7"
+                                                Height="7" 
+                                                Background="Orange" 
+                                                Opacity="1" 
+                                                Visibility="Collapsed"
+                                                Style="{StaticResource IsRepairOnVisibilityStyle}"/>-->
+
+                                    <!-- индикатор посылки пакета на таможню устройства -->
+                                    <Border Grid.Column="0" 
+                                        CornerRadius="4"
+                                        Margin="5"
+                                        Width="7"
+                                        Height="7" 
+                                        Background="Blue"
+                                        Opacity="{Binding QueryIndicatorViewModel.IndicatorOpacity}"/>
+                                    <TextBlock Grid.Column="1"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Center"
+                                           FontSize="15"
+                                           Text="{Binding DeviceName}"
+                                           TextAlignment="Center"
+                                           TextWrapping="Wrap" />
+                                </Grid>
+                            </Viewbox>
+                        </Border>
+                        <!--Пускатель 1-->
+                        <Border
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="#FFC5C5C5"
+                        BorderBrush="#FFCFCFCF"
+                        DataContext="{Binding StarterViewModels[0]}"
+                        BorderThickness="1"
+                        Visibility="{Binding ., Converter={StaticResource IsNullToVisibilityConverterRevert}}" >
+                            <Border
+                            Margin="10"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Background="#6FAAAAAA"
+                            BorderBrush="#FFCFCFCF"
+                            BorderThickness="1" />
+                        </Border>
+                        <Border
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        DataContext="{Binding StarterViewModels[0]}"
+                        Background="{Binding IsStarterOn, Converter={StaticResource ObjectAsBoolToStateBrush}}"
+                        Style="{StaticResource CommandStateStyle}">
+                            <Border
+                            Margin="10"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Visibility="{Binding ., Converter={StaticResource IsNullToVisibilityConverter}}" 
+                            Background="{Binding ManagementFuseState, Converter={StaticResource ObjectAsBoolToStateBrush}}"
+                            BorderBrush="#FFCFCFCF"
+                            BorderThickness="1">
+                                <TextBlock
+                                VerticalAlignment="Stretch"
+                                FontSize="25"
+                                Text="A"
+                                TextAlignment="Center"
+                                Visibility="{Binding IsInManualMode, Converter={StaticResource ObjAsBoolToAutoModeVisibilityConverter}}" />
+                            </Border>
+                        </Border>
+                        <!--Пускатель 2-->
+                        <Border
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="#FFC5C5C5"
+                        BorderBrush="#FFCFCFCF"
+                        DataContext="{Binding StarterViewModels[1]}"
+                        BorderThickness="1"
+                        Visibility="{Binding ., Converter={StaticResource IsNullToVisibilityConverterRevert}}" >
+                            <Border
+                            Margin="10"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Background="#6FAAAAAA"
+                            BorderBrush="#FFCFCFCF"
+                            BorderThickness="1" />
+                        </Border>
+                        <Border
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        DataContext="{Binding StarterViewModels[1]}"
+                        Background="{Binding IsStarterOn, Converter={StaticResource ObjectAsBoolToStateBrush}}"
+                        Style="{DynamicResource CommandStateStyle}">
+
+                            <Border
+                            Margin="10"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Visibility="{Binding ., Converter={StaticResource IsNullToVisibilityConverter}}"
+                            Background="{Binding ManagementFuseState, Converter={StaticResource ObjectAsBoolToStateBrush}}"
+                            BorderBrush="#FFCFCFCF"
+                            BorderThickness="1">
+                                <TextBlock
+                                VerticalAlignment="Stretch"
+                                FontSize="25"
+                                Text="A"
+                                TextAlignment="Center"
+                                Visibility="{Binding IsInManualMode, Converter={StaticResource ObjAsBoolToAutoModeVisibilityConverter}}" />
+                            </Border>
+                        </Border>
+                        <!--Пускатель 3-->
+                        <Grid Grid.Row="2"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="2"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          Margin="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="6*"/>
+                            </Grid.ColumnDefinitions>
+                            <!-- подача команды на 3-й пускатель -->
+                            <Border
+                            Grid.Column="0"
+                            Margin="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            BorderBrush="#FFCFCFCF"
+                            BorderThickness="0.5"
+                            DataContext="{Binding StarterViewModels[2]}"
+                            Background="{Binding DeviceCommandStateViewModel.CommandType, Converter={StaticResource EnumStatesToCommandTypeBrushConverter}}"
+                            Style="{StaticResource IsCommandSendingToVisibilityStyle}"/>
+                            <!-- индикатор ручной/авторежим, где фон - есть контроль питания(фьюз) -->
+                            <Border
+                            Grid.Column="1"
+                            Margin="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            DataContext="{Binding StarterViewModels[2]}"
+                            Visibility="{Binding ., Converter={StaticResource IsNullToVisibilityConverter}}"
+                            Background="{Binding ManagementFuseState, Converter={StaticResource ObjectAsBoolToStateBrush}}"
+                            BorderBrush="#FFCFCFCF"
+                            BorderThickness="0.5">
+                                <TextBlock
+                                VerticalAlignment="Stretch"
+                                FontSize="10"
+                                Text="A"
+                                TextAlignment="Center"
+                                Visibility="{Binding IsInManualMode, Converter={StaticResource ObjAsBoolToAutoModeVisibilityConverter}}" />
+                            </Border>
+                            <!-- пускатель включен/выключен -->
+                            <Border Grid.Column="2"
+                                Margin="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch" 
+                                DataContext="{Binding StarterViewModels[2]}"
+                                Background="{Binding IsStarterOn, Converter={StaticResource ObjectAsBoolToStateBrush}}"
+                                BorderBrush="#FFCFCFCF"
+                                BorderThickness="0.5"
+                                Style="{StaticResource CommandStateStyle}"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <!-- виджет состояния аварии -->
+                <Border
+                Grid.Row="0"
+                Grid.Column="1"
+                Width="17"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                BorderBrush="#FFCFCFCF"
+                BorderThickness="1">
+                    <i:Interaction.Behaviors>
+                        <behaviors:WidgetRightBorderBehavior/>
+                    </i:Interaction.Behaviors>
+                    <Viewbox Stretch="Fill">
+                        <Border Width="7">
+                            <TextBlock
+                            Margin="1"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="8"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=StateWidget}" Value="{x:Static enums1:WidgetState.Norm}">
+                                                <Setter Property="Visibility" Value="Collapsed" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Path=StateWidget}" Value="{x:Static enums1:WidgetState.Crash}">
+                                                <Setter Property="Text" Value="Авария" />
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Path=StateWidget}" Value="{x:Static enums1:WidgetState.NoConnection}">
+                                                <Setter Property="Text" Value="Нет связи" />
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Path=StateWidget}" Value="{x:Static enums1:WidgetState.Repair}">
+                                                <Setter Property="Text" Value="Ремонт" />
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Border>
+                    </Viewbox>
+                </Border>
+            </Grid>
+        </Viewbox>
+    </DataTemplate>
+</ResourceDictionary>

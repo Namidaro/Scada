@@ -1,0 +1,34 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:userControl="clr-namespace:ULA.Devices.PICON2.Presentation.ViewModels.UserControl">
+    <DataTemplate DataType="{x:Type userControl:DateEnterFieldViewModel}">
+
+        <Grid Margin="1">
+            <StackPanel Orientation="Horizontal">
+                <TextBox
+                    Name="FirstPart"
+                    Width="30"
+                    VerticalContentAlignment="Bottom"
+                    BorderBrush="White"
+                    BorderThickness="2"
+                    FontSize="13"
+                    MaxLength="3"
+                    Text="{Binding DatePart1, UpdateSourceTrigger=PropertyChanged}" />
+                <Label
+                    VerticalContentAlignment="Bottom"
+                    Background="White"
+                    Content="." />
+                <TextBox
+                    Name="SecondPart"
+                    Width="30"
+                    VerticalContentAlignment="Bottom"
+                    BorderBrush="White"
+                    BorderThickness="2"
+                    FontSize="13"
+                    MaxLength="3"
+                    Text="{Binding DatePart2, UpdateSourceTrigger=PropertyChanged}" />
+
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>

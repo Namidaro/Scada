@@ -1,0 +1,21 @@
+﻿<controls:MainViewBase x:Class="ULA.Shell.Shell"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:ag="clr-namespace:ULA.Presentation.Infrastructure;assembly=ULA.Presentation.Infrastructure"
+                       xmlns:controls="clr-namespace:ULA.Presentation.SharedResourses.Controls;assembly=ULA.Presentation.SharedResourses"
+                       xmlns:markups="clr-namespace:ULA.Presentation.SharedResourses.Markups;assembly=ULA.Presentation.SharedResourses"
+                       xmlns:shell="http://schemas.microsoft.com/winfx/2006/xaml/presentation/shell"
+                       xmlns:viewLocator="clr-namespace:ULA.Presentation.Markups;assembly=ULA.Presentation"
+                       ApplicationTitle="{markups:LocalizationResources ApplicationTitle}"
+                       Closing="Shell_OnClosing"
+                       Style="{StaticResource MainWindowStyle}"
+                       Activated="Shell_OnActivated"
+                       Icon="Resources/street-lamps.ico">
+    <Grid>
+        <ContentPresenter>
+            <ContentPresenter.Content>
+                <viewLocator:ViewResolver ViewName="{x:Static ag:ApplicationGlobalNames.ROOT_VIEW_NAME}" />
+            </ContentPresenter.Content>
+        </ContentPresenter>
+    </Grid>
+</controls:MainViewBase>

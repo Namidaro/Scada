@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{28AED74E-A17A-4A54-AA11-16160AE797B3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YP.Toolkit.System</RootNamespace>
+    <AssemblyName>YP.Toolkit.System</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <DocumentationFile>$(OutputPath)YP.Toolkit.System.XML</DocumentationFile>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>$(OutputPath)YP.Toolkit.System.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>$(OutputPath)YP.Toolkit.System.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>YP.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prism, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.Core.6.3.0\lib\net45\Prism.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prism.Unity.Wpf, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.Unity.6.3.0\lib\net45\Prism.Unity.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prism.Wpf, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.Wpf.6.3.0\lib\net45\Prism.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.Wpf.6.3.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Collections\IPriorityQueue.cs" />
+    <Compile Include="Collections\PriorityQueue.cs" />
+    <Compile Include="Exceptions\ExceptionBase.cs" />
+    <Compile Include="Exceptions\MetadataAlreadyExistsException.cs" />
+    <Compile Include="Exceptions\MetadataBuilderException.cs" />
+    <Compile Include="Exceptions\MetadataException.cs" />
+    <Compile Include="Exceptions\MetadataRegistrationException.cs" />
+    <Compile Include="Exceptions\SerializationException.cs" />
+    <Compile Include="Exceptions\SpecificationException.cs" />
+    <Compile Include="Exceptions\StrongTypeReflectionException.cs" />
+    <Compile Include="GlobalSettings\Annotations.cs" />
+    <Compile Include="GlobalSettings\AssemblyInfo.cs" />
+    <Compile Include="ParallelExtensions\BlockingCollectionExtensions.cs" />
+    <Compile Include="ParallelExtensions\CancellationTokenExtensions.cs" />
+    <Compile Include="ParallelExtensions\CompletedTask.cs" />
+    <Compile Include="ParallelExtensions\CoordinationDataStructures\AbstractStreamBase.cs" />
+    <Compile Include="ParallelExtensions\CoordinationDataStructures\ActionCountdownEvent.cs" />
+    <Compile Include="ParallelExtensions\CoordinationDataStructures\AsyncCoordination\AsyncBarrier.cs" />
+    <Compile Include="ParallelExtensions\CoordinationDataStructures\AsyncCoordination\AsyncCache.cs" />
+    <Compile Include="ParallelExtensions\CoordinationDataStructures\AsyncCoordination\AsyncCall.cs" />
+    <Compile Include="ParallelExtensions\CoordinationDataStructures\AsyncCoordination\AsyncProducerConsumerCollection.cs" />
+    <Compile Include="ParallelExtensions\CoordinationDataStructures\AsyncCoordination\AsyncReaderWriter.cs" />
+    <Compile Include="ParallelExtensions\CoordinationDataStructures\AsyncCoordination\AsyncSemaphore.cs" />
+    <Compile Include="ParallelExtensions\CoordinationDataStructures\ConcurrentHeapPriorityQueue.cs" />
+    <Compile Include="ParallelExtensions\CoordinationDataStructures\ObjectPool.cs" />
+    <Compile Include="ParallelExtensions\CoordinationDataStructures\ObservableConcurrentCollection.cs" />
+    <Compile Include="ParallelExtensions\CoordinationDataStructures\ObservableConcurrentDictionary.cs" />
+    <Compile Include="ParallelExtensions\CoordinationDataStructures\Pipeline.cs" />
+    <Compile Include="ParallelExtensions\CoordinationDataStructures\ProducerConsumerCollectionBase.cs" />
+    <Compile Include="ParallelExtensions\CoordinationDataStructures\ReductionVariable.cs" />
+    <Compile Include="ParallelExtensions\CoordinationDataStructures\SerialTaskQueue.cs" />
+    <Compile Include="ParallelExtensions\CoordinationDataStructures\SpinLockClass.cs" />
+    <Compile Include="ParallelExtensions\CoordinationDataStructures\ThreadSafeRandom.cs" />
+    <Compile Include="ParallelExtensions\CoordinationDataStructures\TransferStream.cs" />
+    <Compile Include="ParallelExtensions\LazyExtensions.cs" />
+    <Compile Include="ParallelExtensions\LinqToTasks.cs" />
+    <Compile Include="ParallelExtensions\Partitioners\ChunkPartitioner.cs" />
+    <Compile Include="ParallelExtensions\Partitioners\SingleItemPartitioner.cs" />
+    <Compile Include="ParallelExtensions\TaskCompletionSourceExtensions.cs" />
+    <Compile Include="ParallelExtensions\TaskExtras_Children.cs" />
+    <Compile Include="ParallelExtensions\TaskExtras_ExceptionHandling.cs" />
+    <Compile Include="ParallelExtensions\TaskExtras_Observable.cs" />
+    <Compile Include="ParallelExtensions\TaskExtras_Then.cs" />
+    <Compile Include="ParallelExtensions\TaskExtras_Timouts.cs" />
+    <Compile Include="ParallelExtensions\TaskExtras_Waiting.cs" />
+    <Compile Include="ParallelExtensions\TaskFactoryExtensions_Common.cs" />
+    <Compile Include="ParallelExtensions\TaskFactoryExtensions_Create.cs" />
+    <Compile Include="ParallelExtensions\TaskFactoryExtensions_Delayed.cs" />
+    <Compile Include="ParallelExtensions\TaskFactoryExtensions_From.cs" />
+    <Compile Include="ParallelExtensions\TaskFactoryExtensions_FromAsync.cs" />
+    <Compile Include="ParallelExtensions\TaskFactoryExtensions_Iterator.cs" />
+    <Compile Include="ParallelExtensions\TaskFactoryExtensions_TrackedSequence.cs" />
+    <Compile Include="ParallelExtensions\TaskFactoryExtensions_WhenAll.cs" />
+    <Compile Include="ParallelExtensions\TaskSchedulerExtensions.cs" />
+    <Compile Include="ParallelExtensions\TaskSchedulers\ConcurrentExclusiveInterleave.cs" />
+    <Compile Include="ParallelExtensions\TaskSchedulers\CurrentThreadTaskScheduler.cs" />
+    <Compile Include="ParallelExtensions\TaskSchedulers\LimitedConcurrencyLevelTaskScheduler.cs" />
+    <Compile Include="ParallelExtensions\TaskSchedulers\OrderedTaskScheduler.cs" />
+    <Compile Include="ParallelExtensions\TaskSchedulers\QueuedTaskScheduler.cs" />
+    <Compile Include="ParallelExtensions\TaskSchedulers\ReprioritizableTaskScheduler.cs" />
+    <Compile Include="ParallelExtensions\TaskSchedulers\RoundRobinTaskScheduler.cs" />
+    <Compile Include="ParallelExtensions\TaskSchedulers\StaTaskScheduler.cs" />
+    <Compile Include="ParallelExtensions\TaskSchedulers\SynchronizationContextTaskScheduler.cs" />
+    <Compile Include="ParallelExtensions\TaskSchedulers\ThreadPerTaskkScheduler.cs" />
+    <Compile Include="ParallelExtensions\TaskSchedulers\WorkStealingTaskScheduler.cs" />
+    <Compile Include="Properties\AssemblyInformation.cs" />
+    <Compile Include="Exceptions\CombinedException.cs" />
+    <Compile Include="SystemExtensions\ArrayExtension.cs" />
+    <Compile Include="SystemExtensions\BooleanExtensions.cs" />
+    <Compile Include="SystemExtensions\ByteArrayExtensions.cs" />
+    <Compile Include="SystemExtensions\CollectionExtensions.cs" />
+    <Compile Include="SystemExtensions\DictionaryExtensions.cs" />
+    <Compile Include="SystemExtensions\EventHandlerExtenders.cs" />
+    <Compile Include="SystemExtensions\FileInfoExtensions.cs" />
+    <Compile Include="SystemExtensions\SocketExtensions.cs" />
+    <Compile Include="SystemExtensions\StreamExtensions.cs" />
+    <Compile Include="SystemExtensions\TypeExtensions.cs" />
+    <Compile Include="SystemExtensions\ValueTypeExtensions.cs" />
+    <Compile Include="SystemExtensions\XmlSerializeExtensions.cs" />
+    <Compile Include="Tools\ObjectFactory.cs" />
+    <Compile Include="Tools\Patterns\Disposable.cs" />
+    <Compile Include="Tools\Patterns\DisposableBindableBase.cs" />
+    <Compile Include="Tools\Patterns\EventAggregator\BackgroundEventSubscription.cs" />
+    <Compile Include="Tools\Patterns\EventAggregator\CompositeEvent.cs" />
+    <Compile Include="Tools\Patterns\EventAggregator\DataEventArgs.cs" />
+    <Compile Include="Tools\Patterns\EventAggregator\DelegateReference.cs" />
+    <Compile Include="Tools\Patterns\EventAggregator\EventAggregator.cs" />
+    <Compile Include="Tools\Patterns\EventAggregator\EventBase.cs" />
+    <Compile Include="Tools\Patterns\EventAggregator\EventSubscription.cs" />
+    <Compile Include="Tools\Patterns\EventAggregator\IDelegateReference.cs" />
+    <Compile Include="Tools\Patterns\EventAggregator\IDispatcherFacade.cs" />
+    <Compile Include="Tools\Patterns\EventAggregator\IEventAggregator.cs" />
+    <Compile Include="Tools\Patterns\EventAggregator\IEventSubscription.cs" />
+    <Compile Include="Tools\Patterns\EventAggregator\SubscriptionToken.cs" />
+    <Compile Include="Tools\Patterns\EventAggregator\ThreadOption.cs" />
+    <Compile Include="Tools\Patterns\Specification\AndSpecification.cs" />
+    <Compile Include="Tools\Patterns\Specification\CompositeSpecification.cs" />
+    <Compile Include="Tools\Patterns\Specification\ExpressionExtensions.cs" />
+    <Compile Include="Tools\Patterns\Specification\NotSpecification.cs" />
+    <Compile Include="Tools\Patterns\Specification\OrSpecification.cs" />
+    <Compile Include="Tools\Patterns\Specification\SpecificationBase.cs" />
+    <Compile Include="Tools\Patterns\Specification\SpecificationFluentApi.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\BinarySerializableAttribute.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\BinarySerializableMemberAttribute.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\BinarySerialization.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\BinarySkipMemberAttribute.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Configuration\BinarySerializationConfiguration.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Configuration\DeclarativeConfiguration.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Configuration\IConfiguration.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Helpers\TypeHelper.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\Builders\ArrayTypeMetadataBuilder.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\CharInfoAttribute.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\Builders\CharTypeMetadataBuilder.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\CollectionInfoAttribute.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\Builders\Declarative\DeclarativeCustomTypeMetadataBuilder.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\Builders\Declarative\DeclarativeMetadataBuilder.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\Builders\Declarative\DeclarativeMetadataBuilderBase.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\Builders\MemberMetadataBuilder.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\Builders\GenericCollectionTypeMetadataBuilder.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\Builders\ICharInfo.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\Builders\ICollectionInfo.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\Builders\IMetadataBuilder.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\Builders\IStringInfo.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\Builders\Declarative\MemberSpecification.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\DelegateFieldInfoMember.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\DelegatePropertyInfoMember.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\IMemberInfo.Generic.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\ISerializableTypeMetadata.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\ISerializableTypeMetadata.Generic.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\ITypeInfo.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\Builders\PrimitiveTypeMetadataBuilder.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\StringInfoAttribute.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\Builders\StringTypeMetadataBuilder.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\Builders\Declarative\DeclarativeFieldInfoMember.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\Builders\Declarative\DeclarativePropertyInfoMember.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\FieldInfoMember.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\IMemberInfo.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\IMetadata.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\MemberMetadata.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\ObjectMetadata.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\PropertyInfoMember.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\SerializableTypeMetadata.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Metadata\SerializableTypeMetadata.Generic.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\ArraySerializationStrategy.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\ArraySerializationStrategy.Generic.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\ArraySerializer.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\BooleanSerializer.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\ByteSerializer.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\CharSerializer.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\CollectionSerializationStrategyBase.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\CollectionSerializer.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\CollectionStrategySerialization.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\Int16Serializer.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\Int32Serializer.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\ISerializer.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\Int64Serializer.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\ISerializer.Generic.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\MemberMetadataSerializer.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\MemberMetadataSerializer.Generic.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\ObjectSerializer.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\SByteSerializer.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\SerializerMessanger.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\SkippedMemberMetadataSerializer.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\StringSerializer.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\UInt16Serializer.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\UInt32Serializer.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\UInt64Serializer.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\Serializer.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\StreamWrapper\BinaryBuffer.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\StreamWrapper\IBinaryReader.cs" />
+    <Compile Include="Tools\Serializers\BinarySerializer\StreamWrapper\IBinaryWriter.cs" />
+    <Compile Include="Tools\StrongTypedReflection\StrongTypeReflection.cs" />
+    <Compile Include="Tools\StrongTypedReflection\TypeMembersHelper.cs" />
+    <Compile Include="Validation\Guard.Assignable.cs" />
+    <Compile Include="Validation\Guard.Collections.ConsequentiallyNotEquals.cs" />
+    <Compile Include="Validation\Guard.False.cs" />
+    <Compile Include="Validation\Guard.Collections.Empty.cs" />
+    <Compile Include="Validation\Guard.Equals.cs" />
+    <Compile Include="Validation\Guard.ExceptionThrowing.cs" />
+    <Compile Include="Validation\Guard.Greater.cs" />
+    <Compile Include="Validation\Guard.GreaterOrEquals.cs" />
+    <Compile Include="Validation\Guard.InRange.cs" />
+    <Compile Include="Validation\Guard.Less.cs" />
+    <Compile Include="Validation\Guard.LessOrEquals.cs" />
+    <Compile Include="Validation\Guard.Negatives.Int32.cs" />
+    <Compile Include="Validation\Guard.NotAssignable.cs" />
+    <Compile Include="Validation\Guard.NotEquals.cs" />
+    <Compile Include="Validation\Guard.NullReference.cs" />
+    <Compile Include="Validation\Guard.StringIsNullOrEmpty.cs" />
+    <Compile Include="Validation\Guard.NotInRange.cs" />
+    <Compile Include="Validation\Guard.Collections.СonsequentiallyEquals.cs" />
+    <Compile Include="Validation\ValidationRules\Builders\IRuleBuilder.cs" />
+    <Compile Include="Validation\ValidationRules\FluentValidation.cs" />
+    <Compile Include="Validation\ValidationRules\InternalRules\IValidationInAdvanced.cs" />
+    <Compile Include="Validation\ValidationRules\InternalRules\IValidationRule.cs" />
+    <Compile Include="Validation\ValidationRules\InternalRules\IValidationRuleSetter.cs" />
+    <Compile Include="Validation\ValidationRules\InternalRules\PropertyRule.cs" />
+    <Compile Include="Validation\ValidationRules\Builders\RuleBuilder.cs" />
+    <Compile Include="Validation\ValidationRules\InternalRules\ValidationBlock.cs" />
+    <Compile Include="Validation\ValidationRules\ValidationFailure.cs" />
+    <Compile Include="Validation\ValidationRules\ValidationBase.cs" />
+    <Compile Include="Validation\ValidationRules\Validators\NotNullRule.cs" />
+    <Compile Include="Validation\ValidationRules\Validators\NotNullOrNotEmptyRule.cs" />
+    <Compile Include="Validation\ValidationRules\Validators\RegExRule.cs" />
+    <Compile Include="Validation\ValidationRules\Validators\StringMaxLengthRule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Validation\Guard.True.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Tools\Serializers\BinarySerializer\Serializers\CollectionStrategySerialization.Generic.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Validation\Guard.NotOfType.cs" />
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="YP.snk" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
