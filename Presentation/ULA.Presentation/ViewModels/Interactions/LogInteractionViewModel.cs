@@ -169,7 +169,7 @@ namespace ULA.Presentation.ViewModels.Interactions
 
                 return ((descriptionFilter == "" ||
                          logInformation.ActionDescription.ToUpper().Contains(descriptionFilter.ToUpper())) &&
-                        logInformation.ActionDate > dateFromFilter && logInformation.ActionDate < dateToFilter + new TimeSpan(1, 0, 0, 0)); // чтобы захватить весь этот день
+                        logInformation.ActionDate > dateFromFilter && logInformation.ActionDate < (dateToFilter + new TimeSpan(1, 0, 0, 0))); // чтобы захватить весь этот день
             };
 
         }

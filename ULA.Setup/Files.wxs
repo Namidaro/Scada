@@ -2,7 +2,7 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
 
   <Fragment>
-    <DirectoryRef Id="INSTALLFOLDER" FileSource="C:\ULA 2k17\Presentation\ULA.Shell\bin\Release\">
+       <DirectoryRef Id="INSTALLFOLDER" FileSource="C:\#git\Scada\Presentation\ULA.Shell\bin\Release\">
       <Component Id="ProductComponent" Guid="b11556a2-e066-4393-af5c-9c9210187e12">
         <File Id='Shell' DiskId='1' Name='ULA.Shell.exe'/>
         <File Id='FirstFloorModernUIdll' DiskId='1' Name='FirstFloor.ModernUI.dll'/>
@@ -78,12 +78,12 @@
       </Component>
     </DirectoryRef>-->
 
-    <DirectoryRef Id="FilesFolder" FileSource="C:\ULA 2k17\Presentation\ULA.Shell\bin\Release\Files\">
+    <DirectoryRef Id="FilesFolder" FileSource="C:\#git\Scada\Presentation\ULA.Shell\bin\Release\Files\">
       <Component Id="files" Guid="b11556a2-e066-4393-af5c-9c9210187e32">
         <File Id='ULAchm' DiskId='1' Name='SUNO.chm'/>
       </Component>
     </DirectoryRef>
-    <DirectoryRef Id="DataBasesFolder" FileSource="C:\ULA 2k17\Presentation\ULA.Shell\bin\Release\ApplicationData\">
+    <DirectoryRef Id="DataBasesFolder" FileSource="C:\#git\Scada\Presentation\ULA.Shell\bin\Release\ApplicationData\">
       <!--<Component Id="db0" Guid="b11556a2-e066-4393-af5c-9c9210187e3c">
         <File Id='db0' DiskId='1' Name='DevicesDataBase_app0.xml'/>
       </Component>
@@ -95,7 +95,7 @@
     </DirectoryRef>
 
 
-    <DirectoryRef Id="ResourcesFolder" FileSource="C:\ULA 2k17\Presentation\ULA.Shell\bin\Release\Resources\">
+    <DirectoryRef Id="ResourcesFolder" FileSource="C:\#git\Scada\Presentation\ULA.Shell\bin\Release\Resources\">
       <Component Id="help" Guid="b11556a2-e066-4393-af5c-9c9210187e42">
         <File Id='AddressesPICON2devs' DiskId='1' Name='AddressesPICON2.devs'/>
         <File Id='AddressesPICONGSdevs' DiskId='1' Name='AddressesPICONGS.devs'/>

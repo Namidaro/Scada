@@ -51,10 +51,10 @@
             <TextBlock Margin="2" Text="{markups:LocalizationResources To}" />
             <DatePicker Width="100"
         		Margin="2"
-        		DisplayDateEnd="1/01/19"
-        		DisplayDateStart="1/1/14"
-        		SelectedDate="{Binding DateToFilter, UpdateSourceTrigger=PropertyChanged}"
-        		SelectedDateFormat="Short" />
+                DisplayDate="1/1/2014"
+        		DisplayDateEnd="1.01.2114"
+        		DisplayDateStart="1.1.2014"
+        		SelectedDate="{Binding DateToFilter, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
         <DataGrid Grid.Row="2" HorizontalAlignment="Stretch"
                   VerticalAlignment="Top"

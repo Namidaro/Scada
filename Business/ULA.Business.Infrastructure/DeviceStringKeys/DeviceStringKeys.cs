@@ -697,8 +697,49 @@ namespace ULA.Business.Infrastructure.DeviceStringKeys
             /// </summary>
             public const string POWER_DEFECT = "Defect.NoPower";
 
+           
 
+            /// <summary>
+            /// диагностика неисправности
+            /// </summary>
+            public const string DEFECT_DIAGNOSTIC = "Defect.Diagnostics";
 
+            /// <summary>
+            /// неисправность ПЗУ
+            /// </summary>
+            public const string DEFECT_PROGRAM_CODE = "Defect.ProgramCode";
+            /// <summary>
+            /// неисправность часов
+            /// </summary>
+            public const string DEFECT_CLOCK = "Defect.Clock";
+            /// <summary>
+            /// неиспрвность ППЗУ
+            /// </summary>
+            public const string DEFECT_PPZU = "Defect.PPZU";
+            /// <summary>
+            /// неисправность питания
+            /// </summary>
+            public const string DEFECT_POWER = "Defect.Power";
+            /// <summary>
+            /// неисправность связи с подчиненным
+            /// </summary>
+            public const string DEFECT_SLAVE_CONNECTION = "Defect.SlaveConnection";
+            /// <summary>
+            /// неисправность запросов к подчиненному
+            /// </summary>
+            public const string DEFECT_SLAVE_REQUEST = "Defect.SlaveRequest";
+            /// <summary>
+            /// неисправность логики
+            /// </summary>
+            public const string DEFECT_LOGIC = "Defect.Logic";
+            /// <summary>
+            /// неисправность модулей
+            /// </summary>
+            public const string MODULE_DEFECT = "Defect.Module";
+            /// <summary>
+            /// неисправность запросов к модулям
+            /// </summary>
+            public const string MODULE_REQUEST_DEFECT = "Defect.ModuleRequest";
 
             /// <summary>
             /// кунал управления 1

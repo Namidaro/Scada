@@ -124,6 +124,7 @@ namespace ULA.Devices.PICON2.Business
                 this.AddDataRow(DeviceStringKeys.DeviceTableTagKeys.PROTECTION_DEFECT, commandManagementId, new BytesToBooleanFormatter(9, 2));
                 this.AddDataRow(DeviceStringKeys.DeviceTableTagKeys.MANAGEMENT_DEFECT, commandManagementId, new BytesToBooleanFormatter(9, 1));// в самом устройстве, и никто это менять не будет... так и живем
                 this.AddDataRow(DeviceStringKeys.DeviceTableTagKeys.FUSES_DEFECT, commandManagementId, new BytesToBooleanFormatter(9, 4));
+
                 // this.AddDataRow("Defect.Controls", result.CommandManagementId, new BytesToBooleanFormatter(9, 5));
                 //  this.AddDataRow("Defect.Controller", result.CommandManagementId, new BytesToBooleanFormatter(9, 7));
                 this.AddDataRow(DeviceStringKeys.DeviceTableTagKeys.STARTER_MANAGEMENT_CONTROL + 1, commandManagementId, new BytesToBooleanFormatter(8, 0));
@@ -166,8 +167,18 @@ namespace ULA.Devices.PICON2.Business
                 var signalLevelId = this.AddDriverData(DeviceStringKeys.DeviceTableTagKeys.SIGNAL_LEVEL_DATA_ID_NAME, 0x001F, 1);
                 this.AddDataRow("SignalLevel", signalLevelId, new BytesToByteFormatter(1));
 
+                 //var diagnosticDefect = this.AddDriverData(DeviceStringKeys.DeviceTableTagKeys.DEFECT_DIAGNOSTIC, 0x1100, 1);
+                 //this.AddDataRow(DeviceStringKeys.DeviceTableTagKeys.DEFECT_PROGRAM_CODE, diagnosticDefect, new BytesToBooleanFormatter(0, 0));
+                 //this.AddDataRow(DeviceStringKeys.DeviceTableTagKeys.DEFECT_CLOCK, diagnosticDefect, new BytesToBooleanFormatter(0, 1));
+                 //this.AddDataRow(DeviceStringKeys.DeviceTableTagKeys.DEFECT_PPZU, diagnosticDefect, new BytesToBooleanFormatter(0, 2));
+                 //this.AddDataRow(DeviceStringKeys.DeviceTableTagKeys.POWER_DEFECT, diagnosticDefect, new BytesToBooleanFormatter(0, 3));
+                 //this.AddDataRow(DeviceStringKeys.DeviceTableTagKeys.MODULE_DEFECT, diagnosticDefect, new BytesToBooleanFormatter(0, 4));
+                 //this.AddDataRow(DeviceStringKeys.DeviceTableTagKeys.MODULE_REQUEST_DEFECT, diagnosticDefect, new BytesToBooleanFormatter(0, 5));
+                 //this.AddDataRow(DeviceStringKeys.DeviceTableTagKeys.DEFECT_SLAVE_CONNECTION, diagnosticDefect, new BytesToBooleanFormatter(0, 6));
+                 //this.AddDataRow(DeviceStringKeys.DeviceTableTagKeys.DEFECT_SLAVE_REQUEST, diagnosticDefect, new BytesToBooleanFormatter(0, 7));
+                 //this.AddDataRow(DeviceStringKeys.DeviceTableTagKeys.DEFECT_LOGIC, diagnosticDefect, new BytesToBooleanFormatter(0, 8));
 
-                var analogId = this.AddDriverData(DeviceStringKeys.DeviceAnalogMetersTagKeys.ANALOG_ID, 0x000E, 18);
+                 var analogId = this.AddDriverData(DeviceStringKeys.DeviceAnalogMetersTagKeys.ANALOG_ID, 0x000E, 18);
 
                 this.AddDataRow(DeviceStringKeys.DeviceAnalogMetersTagKeys.VOLTAGE_A, analogId, new BytesToIntVoltageFormatter(1));
                 this.AddDataRow(DeviceStringKeys.DeviceAnalogMetersTagKeys.VOLTAGE_B, analogId, new BytesToIntVoltageFormatter(3));
