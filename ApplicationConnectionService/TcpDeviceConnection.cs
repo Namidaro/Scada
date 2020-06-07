@@ -160,7 +160,8 @@ namespace ULA.ApplicationConnectionService
             catch
                 (Exception j)
             {
-                AddErrorInList(j, requestName);
+                if (!(j is NullReferenceException))
+                    AddErrorInList(j, requestName);
                 LastTransactionSucceed = false;
                 ConnectionLostAction?.Invoke();
                 resultBytes = null;
@@ -194,7 +195,7 @@ namespace ULA.ApplicationConnectionService
             }
             return resultBytes;
         }
-        
+
 
         private async Task<ushort[]> TryExecuteReadQuery(ushort startAddress, ushort numberOfPoints)
         {
@@ -206,16 +207,28 @@ namespace ULA.ApplicationConnectionService
                 _semaphoreSlim.Release();
                 return bytes;
             }
+            catch (StackOverflowException s)
+            {
+                throw;
+            }
             catch (Exception e)
             {
                 _semaphoreSlim.Release();
-                for (int i = 0; i < 2; i++)
-                {
-                    await OpenConnectionSession(true);
-                    if (LastTransactionSucceed) break;
-                }
                 if (!LastTransactionSucceed) throw;
-                return await TryExecuteReadQuery(startAddress, numberOfPoints);
+
+                //_modbusMaster.Dispose();
+                //OpenConnectionSession(false);
+
+                //for (loopIterator = 0; loopIterator < 2; loopIterator++)
+                //{
+                //    if (LastTransactionSucceed) break;
+                //    await OpenConnectionSession(true);
+                //}
+                //loopIterator = 0;
+
+                return null;
+
+                //return await TryExecuteReadQuery(startAddress, numberOfPoints);
             }
 
         }
